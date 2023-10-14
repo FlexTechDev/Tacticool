@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CameraMotionProfile" load_steps=2 format=3 uid="uid://dro846moqw5p6"]
+
+[ext_resource type="Script" path="res://scripts/player/camera/camera_motion_profile.gd" id="1_7ka24"]
+
+[resource]
+script = ExtResource("1_7ka24")
+lean = 3.0
+lean_speed = 10.0
+bob_magnitude = 0.04
+bob_pace = 19.0

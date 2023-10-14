@@ -1,6 +1,10 @@
 extends CharacterController
 
 @export var look_multiplier = 0.1;
+@export var camera_bob: CameraMotionProfile;
+@export var camera: Camera3D;
+
+var time: float = 0;
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
@@ -23,5 +27,12 @@ func _process(delta: float) -> void:
 		jump();
 	
 	move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"));
+	
+	if(Input.is_action_pressed("sprint")):
+		time += delta;
+	else:
+		time = 0;
+	
+	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector, time), delta * camera_bob.lean_speed);
 	
 	move_and_slide();

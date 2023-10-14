@@ -3,7 +3,7 @@ extends CharacterBody3D
 class_name CharacterController
 
 @export var movement_settings: MovementProfile;
-@export var camera: Camera3D;
+@export var camera_node: Node3D;
 
 func _physics_process(delta: float) -> void:
 	if(!is_on_floor()):
@@ -30,14 +30,14 @@ func jump_with_custom_force(force: float) -> void:
 func look_angle(angle_vector: Vector2) -> void:
 	rotate_angle(angle_vector.x);
 	
-	if(camera != null):
-		camera.rotation.x += deg_to_rad(angle_vector.y);
+	if(camera_node != null):
+		camera_node.rotation.x += deg_to_rad(angle_vector.y);
 
 func look_to_angle(angle_vector: Vector2) -> void:
 	rotate_to_angle(angle_vector.x);
 	
-	if(camera != null):
-		camera.rotation.x = deg_to_rad(angle_vector.y);
+	if(camera_node != null):
+		camera_node.rotation.x = deg_to_rad(angle_vector.y);
 
 func look_to_vector(vector: Vector3) -> void:
 	#in the future, this will allow the unit to look in the direction of a vector

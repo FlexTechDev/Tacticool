@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 0.965926, 0.517638, 0, -0.258819, 1.93185, 4
 transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 7)
 
 [node name="Cube5" parent="." instance=ExtResource("1_xxcgb")]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 3.6, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 3.50357, 0, 0, 0)
 
 [node name="Cube6" parent="." instance=ExtResource("1_xxcgb")]
 transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 4.5, -5, 0, 0)

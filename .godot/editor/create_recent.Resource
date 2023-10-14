@@ -1,2 +1,3 @@
+CameraMotionProfile
 MovementProfile
 Environment
