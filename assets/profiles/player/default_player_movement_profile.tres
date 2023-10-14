@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MovementProfile" load_steps=2 format=3 uid="uid://cjbovx78ng5dr"]
+
+[ext_resource type="Script" path="res://scripts/player/movement/movement_profile.gd" id="1_1cjjc"]
+
+[resource]
+script = ExtResource("1_1cjjc")
+speed = 150.0
+jump_force = 5.0
+gravity = -9.8
+gravity_scale = 0.3

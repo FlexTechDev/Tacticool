@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://w2qnw3oli03a"]
+
+[ext_resource type="PackedScene" uid="uid://chwb1esfd55q6" path="res://assets/meshes/weapons/ar15/ar15.glb" id="1_l4ca8"]
+
+[node name="AR15" type="Node3D"]
+
+[node name="ar15" parent="." instance=ExtResource("1_l4ca8")]

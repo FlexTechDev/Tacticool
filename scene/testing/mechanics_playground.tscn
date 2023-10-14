@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ckcmk0a7v73"]
+
+[ext_resource type="PackedScene" uid="uid://brbhixox5wwvv" path="res://addons/kenney_prototype_tools/scenes/light/light_12.tscn" id="1_xxcgb"]
+[ext_resource type="PackedScene" uid="uid://wl6xyisrqvyq" path="res://scene/player/player.tscn" id="2_rwluu"]
+
+[node name="Mechanics Playground" type="Node3D"]
+
+[node name="Cube" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(128, 0, 0, 0, 0.991, 0, 0, 0, 128, -64, -1, -64)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 0, 7, 0)
+shadow_enabled = true
+
+[node name="Cube2" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="Cube4" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.517638, 0, -0.258819, 1.93185, 4, -0.975004, 2)
+
+[node name="Cube3" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 7)
+
+[node name="Cube5" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 3.6, 0, 0, 0)
+
+[node name="Cube6" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 4.5, -5, 0, 0)
+
+[node name="Cube7" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 1.5, 0, 0.5, 0, -2.40413e-07, 0.5, 0, 4.5)
+
+[node name="Cube8" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 1.5, 0, 0.5, 0, -2.40413e-07, 0.5, 0, -0.5)
+
+[node name="PlayerRoot" parent="." instance=ExtResource("2_rwluu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11762, 0, 3.52488)
+
+[node name="Cube9" parent="." instance=ExtResource("1_xxcgb")]
+transform = Transform3D(5.5, 0, 0, 0, -0.5, 0, 0, 0, 5.5, -5, 2, -0.5)
