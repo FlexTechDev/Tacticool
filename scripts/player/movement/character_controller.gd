@@ -5,6 +5,10 @@ class_name CharacterController
 @export var movement_settings: MovementProfile;
 @export var camera_node: Node3D;
 
+var last_movement_input_vector: Vector2
+var is_sliding: bool = false
+var sliding_time: float = 0;
+
 func _physics_process(delta: float) -> void:
 	if(!is_on_floor()):
 		velocity.y -= movement_settings.gravity_scale;
@@ -16,10 +20,26 @@ func move(vector: Vector2, is_sprinting: bool) -> void:
 	if(!is_sprinting):
 		vector = vector.normalized();
 	elif(is_sprinting):
-		vector = vector.normalized() * movement_settings.sprint_magnifier;
+		if(is_sliding && last_movement_input_vector != null):
+			vector = last_movement_input_vector.normalized() * movement_settings.sprint_magnifier;
+		else:
+			sliding_time = 0;
+			vector = vector.normalized() * movement_settings.sprint_magnifier;
 	
 	velocity.x = vector.x * movement_settings.speed * get_process_delta_time();
 	velocity.z = vector.y * movement_settings.speed * get_process_delta_time();
+	
+	last_movement_input_vector = vector;
+	
+	is_sliding = false;
+
+func slide(delta: float) -> void:
+	is_sliding = true;
+	
+	velocity.x *= movement_settings.slide_speed_dropoff.sample(sliding_time);
+	velocity.z *= movement_settings.slide_speed_dropoff.sample(sliding_time);
+	
+	sliding_time += delta;
 
 func jump() -> void:
 	velocity.y = movement_settings.jump_force;

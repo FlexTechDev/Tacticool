@@ -6,5 +6,5 @@
 script = ExtResource("1_7ka24")
 lean = 3.0
 lean_speed = 10.0
-bob_magnitude = 0.04
+bob_magnitude = 0.03
 bob_pace = 19.0

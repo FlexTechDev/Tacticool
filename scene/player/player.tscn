@@ -33,3 +33,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_k2xh2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621533, -0.199909)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraBase"]
+near = 0.001

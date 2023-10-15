@@ -1,6 +1,10 @@
-[gd_resource type="Resource" script_class="MovementProfile" load_steps=2 format=3 uid="uid://cjbovx78ng5dr"]
+[gd_resource type="Resource" script_class="MovementProfile" load_steps=3 format=3 uid="uid://cjbovx78ng5dr"]
 
 [ext_resource type="Script" path="res://scripts/player/movement/movement_profile.gd" id="1_1cjjc"]
+
+[sub_resource type="Curve" id="Curve_wjyww"]
+_data = [Vector2(0, 1), 0.0, 10.3, 0, 0, Vector2(0.68932, 0), 0.0586059, 0.0, 0, 0]
+point_count = 2
 
 [resource]
 script = ExtResource("1_1cjjc")
@@ -8,3 +12,5 @@ speed = 150.0
 jump_force = 5.0
 gravity = -9.8
 gravity_scale = 0.3
+sprint_magnifier = 1.5
+slide_speed_dropoff = SubResource("Curve_wjyww")

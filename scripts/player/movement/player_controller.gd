@@ -30,8 +30,13 @@ func _process(delta: float) -> void:
 	
 	if(Input.is_action_pressed("sprint")):
 		time += delta;
-	else:
+		if(Input.is_action_pressed("crouch") || Input.is_action_pressed("prone")):
+			slide(delta);
+			time = 0;
+	elif(Input.is_action_just_released("sprint")):
 		time = 0;
+	else:
+		time += delta / movement_settings.sprint_magnifier;
 	
 	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector, time), delta * camera_bob.lean_speed);
 	

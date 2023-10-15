@@ -4,7 +4,7 @@ class_name CameraMotionProfile
 
 @export var lean: float = 3;
 @export var lean_speed: float = 10;
-@export var bob_magnitude: float = 0.04;
+@export var bob_magnitude: float = 0.03;
 @export var bob_pace: float = 19;
 
 func process_motion(camera: Camera3D, vector: Vector2, moving_time: float) -> float:

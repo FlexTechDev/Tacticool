@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs2yclglll3g2"]
+[gd_scene load_steps=6 format=3 uid="uid://cs2yclglll3g2"]
 
 [ext_resource type="PackedScene" uid="uid://brbhixox5wwvv" path="res://addons/kenney_prototype_tools/scenes/light/light_12.tscn" id="1_7b8ul"]
 [ext_resource type="PackedScene" uid="uid://w2qnw3oli03a" path="res://scene/weapons/ar15.tscn" id="2_vleym"]
 [ext_resource type="PackedScene" uid="uid://bb8p0c4cy2d37" path="res://assets/meshes/weapons/boolet/boolet.glb" id="3_nhb2a"]
+[ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="4_8igtj"]
+[ext_resource type="PackedScene" uid="uid://btxsip8fwa64c" path="res://assets/meshes/characters/soldier_arms.glb" id="5_x44xk"]
 
 [node name="ArtPlayground" type="Node3D"]
 
@@ -20,3 +22,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74267, 0.352035, 6.89)
 
 [node name="boolet" parent="." instance=ExtResource("3_nhb2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65061, 0.351682, 6.95378)
+
+[node name="soldier" parent="." instance=ExtResource("4_8igtj")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.28096, 0.00510085, 5.13931)
+
+[node name="soldier_arms" parent="." instance=ExtResource("5_x44xk")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.28066, 0.00404064, 4.88503)
