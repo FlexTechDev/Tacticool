@@ -2,7 +2,7 @@ extends Resource
 
 class_name MovementProfile
 
-@export var speed: float = 100;
+@export var speed: float = 150;
 @export var jump_force: float = 5;
 @export var gravity: float = -9.8;
 @export var gravity_scale: float = 0.3;

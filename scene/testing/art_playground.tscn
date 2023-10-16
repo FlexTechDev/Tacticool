@@ -30,7 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65061, 0.351682, 6.95378)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.28096, 0.00510085, 5.13931)
 
 [node name="soldier_arms" parent="." instance=ExtResource("5_x44xk")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 6.28066, 0.00404064, 4.88503)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7.28066, 0.00404064, 5.13845)
 
 [node name="grenade" parent="." instance=ExtResource("6_empbf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.96489, 0.15998, 4.98765)

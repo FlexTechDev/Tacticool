@@ -17,6 +17,7 @@ ambient_light_source = 3
 ambient_light_sky_contribution = 0.5
 reflected_light_source = 2
 tonemap_mode = 1
+sdfgi_enabled = true
 sdfgi_use_occlusion = true
 sdfgi_y_scale = 2
 glow_enabled = true

@@ -64,5 +64,4 @@ crouch={
 
 [rendering]
 
-global_illumination/gi/use_half_resolution=true
 environment/defaults/default_environment="res://assets/environment/default_environment.tres"

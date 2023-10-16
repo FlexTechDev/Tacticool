@@ -5,6 +5,7 @@ extends CharacterController
 @export var camera: Camera3D;
 
 var time: float = 0;
+var input_appended: bool = false;
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
@@ -15,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		
 		look_angle(-look_delta);
 	
-	if(event.is_action_pressed("escape") && Input.mouse_mode ==Input.MOUSE_MODE_CAPTURED):
+	if(event.is_action_pressed("escape") && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE;
 	elif(event.is_action_pressed("escape") && Input.mouse_mode == Input.MOUSE_MODE_VISIBLE):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
@@ -27,6 +28,7 @@ func _process(delta: float) -> void:
 		jump();
 	elif(Input.is_action_pressed("jump") && !is_on_floor() && try_vault() != Vector3.ZERO):
 		current_vault_position = try_vault();
+		append_movement_input(0.75);
 	elif(Input.is_action_pressed("prone") && !is_on_floor() && try_vault() != Vector3.ZERO):
 		current_vault_position = Vector3.ZERO;
 	
@@ -36,8 +38,9 @@ func _process(delta: float) -> void:
 		
 		if(global_position.distance_to(current_vault_position) <= vault_cutoff_point):
 			current_vault_position = Vector3.ZERO;
-	
-	move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"), delta);
+		
+	if(!input_appended):
+		move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"), delta);
 	
 	if(Input.is_action_pressed("sprint") && input_vector.y < 0):
 		time += delta;
@@ -52,3 +55,9 @@ func _process(delta: float) -> void:
 	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector, time), delta * camera_bob.lean_speed);
 	
 	move_and_slide();
+
+func append_movement_input(time_in_seconds: float) -> void:
+	input_appended = true;
+	await get_tree().create_timer(time_in_seconds).timeout;
+	input_appended = false;
+	current_vault_position = Vector3.ZERO;

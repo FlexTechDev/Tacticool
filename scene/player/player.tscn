@@ -31,11 +31,11 @@ mesh = SubResource("CapsuleMesh_y2tav")
 surface_material_override/0 = SubResource("StandardMaterial3D_k2xh2")
 
 [node name="CameraBase" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621533, -0.199909)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraBase"]
 near = 0.001
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.629808, -0.77675, 0, 0.77675, 0.629808, 0, 0.621784, -0.201527)
+transform = Transform3D(1, 0, 0, 0, 0.629808, -0.77675, 0, 0.77675, 0.629808, 0, 0.55, -0.202)
 target_position = Vector3(0, -0.5, 0)
