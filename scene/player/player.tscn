@@ -13,12 +13,13 @@ albedo_color = Color(1, 0.329412, 0.329412, 1)
 
 [node name="PlayerRoot" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera", "camera_node")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera", "camera_node", "vault_raycast")]
 script = ExtResource("1_pp57v")
 camera_bob = ExtResource("2_jc2um")
 camera = NodePath("CameraBase/Camera3D")
 movement_settings = ExtResource("2_r8iwl")
 camera_node = NodePath("CameraBase")
+vault_raycast = NodePath("RayCast3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.427006, 0)
@@ -34,3 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.621533, -0.199909)
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraBase"]
 near = 0.001
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.321621, -0.946868, 0, 0.946868, 0.321621, 0, 0.621784, -0.201527)
+target_position = Vector3(0, -0.5, 0)

@@ -4,10 +4,13 @@ class_name CharacterController
 
 @export var movement_settings: MovementProfile;
 @export var camera_node: Node3D;
+@export var vault_raycast: RayCast3D
+@export var vault_cutoff_point: float = 0.3;
 
 var last_movement_input_vector: Vector2
 var is_sliding: bool = false
 var sliding_time: float = 0;
+var current_vault_position: Vector3;
 
 func _physics_process(delta: float) -> void:
 	if(!is_on_floor()):
@@ -16,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	elif(velocity.y < 0 && is_on_floor()):
 		velocity.y = 0;
 
-func move(vector: Vector2, is_sprinting: bool) -> void:
+func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 	if(!is_sprinting):
 		vector = vector.normalized();
 	elif(is_sprinting):
@@ -26,12 +29,19 @@ func move(vector: Vector2, is_sprinting: bool) -> void:
 			sliding_time = 0;
 			vector = vector.normalized() * movement_settings.sprint_magnifier;
 	
-	velocity.x = vector.x * movement_settings.speed * get_process_delta_time();
-	velocity.z = vector.y * movement_settings.speed * get_process_delta_time();
+	velocity.x = vector.x * movement_settings.speed * get_process_delta_time() * delta;
+	velocity.z = vector.y * movement_settings.speed * get_process_delta_time() * delta;
 	
 	last_movement_input_vector = vector;
 	
 	is_sliding = false;
+
+func try_vault() -> Vector3:
+	if(vault_raycast.is_colliding() && vault_raycast.get_collision_normal() == Vector3(0, 1, 0)):
+		velocity = Vector3.ZERO;
+		return vault_raycast.get_collision_point();
+	
+	return Vector3.ZERO;
 
 func slide(delta: float) -> void:
 	is_sliding = true;

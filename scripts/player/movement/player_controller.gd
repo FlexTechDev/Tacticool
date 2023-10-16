@@ -25,8 +25,17 @@ func _process(delta: float) -> void:
 	
 	if(Input.is_action_just_pressed("jump") && is_on_floor()):
 		jump();
+	elif(Input.is_action_pressed("jump") && !is_on_floor() && try_vault() != Vector3.ZERO):
+		current_vault_position = try_vault();
 	
-	move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"));
+	if(current_vault_position != null && current_vault_position != Vector3.ZERO):
+		velocity = Vector3.ZERO;
+		global_position = global_position.lerp(current_vault_position, delta * 3);
+		
+		if(global_position.distance_to(current_vault_position) <= vault_cutoff_point):
+			current_vault_position = Vector3.ZERO;
+	
+	move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"), delta);
 	
 	if(Input.is_action_pressed("sprint")):
 		time += delta;
