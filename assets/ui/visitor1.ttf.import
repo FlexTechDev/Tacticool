@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://chqdm255ya6pm"
-path="res://.godot/imported/visitor1.ttf-9b268b1e25609d9c222b63e26937c8e1.fontdata"
+path="res://.godot/imported/visitor1.ttf-5a2c1f73e71b1a679ac61339ac79729c.fontdata"
 
 [deps]
 
-source_file="res://assets/profiles/player/visitor1.ttf"
-dest_files=["res://.godot/imported/visitor1.ttf-9b268b1e25609d9c222b63e26937c8e1.fontdata"]
+source_file="res://assets/ui/visitor1.ttf"
+dest_files=["res://.godot/imported/visitor1.ttf-5a2c1f73e71b1a679ac61339ac79729c.fontdata"]
 
 [params]
 

@@ -22,15 +22,15 @@ func _physics_process(delta: float) -> void:
 func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 	if(!is_sprinting):
 		vector = vector.normalized();
-	elif(is_sprinting):
+	elif(is_sprinting && vector.rotated(rotation.y).y < 0):
 		if(is_sliding && last_movement_input_vector != null):
 			vector = last_movement_input_vector.normalized() * movement_settings.sprint_magnifier;
 		else:
 			sliding_time = 0;
 			vector = vector.normalized() * movement_settings.sprint_magnifier;
 	
-	velocity.x = vector.x * movement_settings.speed * get_process_delta_time() * delta;
-	velocity.z = vector.y * movement_settings.speed * get_process_delta_time() * delta;
+	velocity.x = vector.x * movement_settings.speed * get_process_delta_time();
+	velocity.z = vector.y * movement_settings.speed * get_process_delta_time();
 	
 	last_movement_input_vector = vector;
 	

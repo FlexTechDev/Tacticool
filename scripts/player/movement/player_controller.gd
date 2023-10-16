@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"), delta);
 	
-	if(Input.is_action_pressed("sprint")):
+	if(Input.is_action_pressed("sprint") && input_vector.y < 0):
 		time += delta;
 		if(Input.is_action_pressed("crouch") || Input.is_action_pressed("prone")):
 			slide(delta);
