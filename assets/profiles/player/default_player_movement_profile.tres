@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/player/movement/movement_profile.gd" id="1_1cjjc"]
 
 [sub_resource type="Curve" id="Curve_wjyww"]
-_data = [Vector2(0, 1), 0.0, 10.3, 0, 0, Vector2(0.68932, 0), 0.0586059, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 5.42105, 0, 0, Vector2(0.68932, 0), 0.0586059, 0.0, 0, 0]
 point_count = 2
 
 [resource]

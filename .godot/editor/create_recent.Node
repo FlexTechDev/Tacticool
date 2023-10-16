@@ -1,9 +1,9 @@
+CollisionShape3D
+StaticBody3D
 OmniLight3D
 Node3D
 Node
 SpotLight3D
-StaticBody3D
-CollisionShape3D
 Camera3D
 MeshInstance3D
 CharacterBody3D
