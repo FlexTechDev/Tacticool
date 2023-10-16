@@ -27,6 +27,8 @@ func _process(delta: float) -> void:
 		jump();
 	elif(Input.is_action_pressed("jump") && !is_on_floor() && try_vault() != Vector3.ZERO):
 		current_vault_position = try_vault();
+	elif(Input.is_action_pressed("prone") && !is_on_floor() && try_vault() != Vector3.ZERO):
+		current_vault_position = Vector3.ZERO;
 	
 	if(current_vault_position != null && current_vault_position != Vector3.ZERO):
 		velocity = Vector3.ZERO;
