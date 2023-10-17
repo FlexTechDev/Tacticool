@@ -29,8 +29,8 @@ func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 			sliding_time = 0;
 			vector = vector.normalized() * movement_settings.sprint_magnifier;
 	
-	velocity.x = vector.x * movement_settings.speed * get_process_delta_time();
-	velocity.z = vector.y * movement_settings.speed * get_process_delta_time();
+	velocity.x = vector.x * movement_settings.speed.x * get_process_delta_time();
+	velocity.z = vector.y * movement_settings.speed.y * get_process_delta_time();
 	
 	last_movement_input_vector = vector;
 	

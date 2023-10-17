@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://wl6xyisrqvyq"]
+[gd_scene load_steps=10 format=3 uid="uid://wl6xyisrqvyq"]
 
 [ext_resource type="Script" path="res://scripts/player/movement/player_controller.gd" id="1_pp57v"]
 [ext_resource type="Resource" uid="uid://dro846moqw5p6" path="res://assets/profiles/camera/player_camera_motion_profile.tres" id="2_jc2um"]
 [ext_resource type="Resource" uid="uid://cjbovx78ng5dr" path="res://assets/profiles/player/default_player_movement_profile.tres" id="2_r8iwl"]
+[ext_resource type="Theme" uid="uid://dnt0ygiojji5s" path="res://assets/ui/menu_ui.tres" id="4_sdi6i"]
+[ext_resource type="Script" path="res://scripts/settings/in_game_settings.gd" id="5_yn5x0"]
+[ext_resource type="Environment" uid="uid://dqdrmd1emcj6w" path="res://assets/environment/default_environment.tres" id="6_y60bl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_02qbt"]
 
@@ -39,3 +42,101 @@ near = 0.001
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.629808, -0.77675, 0, 0.77675, 0.629808, 0, 0.55, -0.202)
 target_position = Vector3(0, -0.5, 0)
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_sdi6i")
+script = ExtResource("5_yn5x0")
+environment = ExtResource("6_y60bl")
+player = NodePath("../CharacterBody3D")
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -216.5
+offset_right = 217.0
+offset_bottom = 216.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Graphics" type="TabBar" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.5
+offset_right = -16.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SDFGI" type="CheckButton" parent="Control/TabContainer/Graphics/VBoxContainer"]
+layout_mode = 2
+text = "SDFGI
+"
+
+[node name="SSAO" type="CheckButton" parent="Control/TabContainer/Graphics/VBoxContainer"]
+layout_mode = 2
+text = "SSAO
+"
+
+[node name="SSR" type="CheckButton" parent="Control/TabContainer/Graphics/VBoxContainer"]
+layout_mode = 2
+text = "SSR
+"
+
+[node name="Controls" type="TabBar" parent="Control/TabContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.5
+offset_right = -16.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+text = "look x sensitivity"
+
+[node name="HSlider" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.1
+
+[node name="Label2" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+text = "look Y sensitivity"
+
+[node name="HSlider2" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 0.1
+
+[connection signal="toggled" from="Control/TabContainer/Graphics/VBoxContainer/SDFGI" to="Control" method="set_sdfgi"]
+[connection signal="toggled" from="Control/TabContainer/Graphics/VBoxContainer/SSAO" to="Control" method="set_ssao"]
+[connection signal="toggled" from="Control/TabContainer/Graphics/VBoxContainer/SSR" to="Control" method="set_ssr"]
+[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/HSlider" to="Control" method="look_x_changed"]
+[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/HSlider2" to="Control" method="look_y_changed"]

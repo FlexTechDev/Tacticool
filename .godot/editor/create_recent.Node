@@ -1,3 +1,11 @@
+CheckButton
+Label
+Control
+HSlider
+VBoxContainer
+CheckBox
+TabBar
+TabContainer
 ShapeCast3D
 VoxelGI
 LightmapGI

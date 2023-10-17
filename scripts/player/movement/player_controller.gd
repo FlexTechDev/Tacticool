@@ -1,6 +1,6 @@
 extends CharacterController
 
-@export var look_multiplier = 0.1;
+@export var look_multiplier: Vector2 = Vector2(0.5, 0.5);
 @export var camera_bob: CameraMotionProfile;
 @export var camera: Camera3D;
 
@@ -12,7 +12,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if(event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
-		var look_delta: Vector2 = event.relative * look_multiplier;
+		var look_delta: Vector2 = event.relative;
+		
+		look_delta.x *= look_multiplier.x;
+		look_delta.y *= look_multiplier.y;
 		
 		look_angle(-look_delta);
 	
