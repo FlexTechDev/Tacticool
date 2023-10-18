@@ -1,6 +1,6 @@
 extends CharacterController
 
-@export var look_multiplier: Vector2 = Vector2(0.5, 0.5);
+@export var look_multiplier: Vector2 = Vector2(0.1, 0.1);
 @export var camera_bob: CameraMotionProfile;
 @export var camera: Camera3D;
 

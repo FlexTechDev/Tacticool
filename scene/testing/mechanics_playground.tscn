@@ -30,25 +30,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11762, 0, 3.52488)
 transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 3.50357, 0, 0, 0)
 
 [node name="Cube6" parent="Hut" instance=ExtResource("1_xxcgb")]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 4.5, -5, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 3.5, 0, 0, 0, 4.5, -5, 0, 0)
 
 [node name="Cube7" parent="Hut" instance=ExtResource("1_xxcgb")]
-transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 1.5, 0, 0.5, 0, -2.40413e-07, 0.5, 0, 4.5)
+transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 3.5, 0, 0.5, 0, -2.40413e-07, 0.5, 0, 4.5)
 
 [node name="Cube8" parent="Hut" instance=ExtResource("1_xxcgb")]
-transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 1.5, 0, 0.5, 0, -2.40413e-07, 0.5, 0, -0.5)
+transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 3.5, 0, 0.5, 0, -2.40413e-07, 0.5, 0, -0.5)
 
 [node name="Cube11" parent="Hut" instance=ExtResource("1_xxcgb")]
 transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 3.50357, 0, 2, 1)
-
-[node name="Cube12" parent="Hut" instance=ExtResource("1_xxcgb")]
-transform = Transform3D(0.5, 0, 0, 0, 1.5, 0, 0, 0, 4.5, -5, 2, 0)
-
-[node name="Cube13" parent="Hut" instance=ExtResource("1_xxcgb")]
-transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 1.5, 0, 0.5, 0, -2.40413e-07, 0.5, 2, 4.5)
-
-[node name="Cube14" parent="Hut" instance=ExtResource("1_xxcgb")]
-transform = Transform3D(-2.18557e-08, 0, -5.5, 0, 1.5, 0, 0.5, 0, -2.40413e-07, 0.5, 2, -0.5)
 
 [node name="Cube9" parent="Hut" instance=ExtResource("1_xxcgb")]
 transform = Transform3D(-4, 4.37114e-08, 0, -3.49691e-07, -0.5, 0, 0, 0, 5.5, 0.5, 2, -0.5)

@@ -4,7 +4,7 @@
 [ext_resource type="Environment" uid="uid://dqdrmd1emcj6w" path="res://assets/environment/default_environment.tres" id="1_ufipy"]
 [ext_resource type="PackedScene" uid="uid://w2qnw3oli03a" path="res://scene/weapons/ar15.tscn" id="2_vleym"]
 [ext_resource type="PackedScene" uid="uid://bb8p0c4cy2d37" path="res://assets/meshes/weapons/boolet/boolet.glb" id="3_nhb2a"]
-[ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="4_8igtj"]
+[ext_resource type="PackedScene" uid="uid://btxsip8fwa64c" path="res://assets/meshes/characters/soldier.glb" id="4_8igtj"]
 [ext_resource type="PackedScene" uid="uid://btxsip8fwa64c" path="res://assets/meshes/characters/soldier_arms.glb" id="5_x44xk"]
 [ext_resource type="PackedScene" uid="uid://dbleqt6a62dwv" path="res://assets/meshes/weapons/grenade/grenade.glb" id="6_empbf"]
 

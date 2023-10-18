@@ -8,7 +8,7 @@ point_count = 2
 
 [resource]
 script = ExtResource("1_1cjjc")
-speed = 150.0
+speed = Vector2(150, 150)
 jump_force = 5.0
 gravity = -9.8
 gravity_scale = 0.3
