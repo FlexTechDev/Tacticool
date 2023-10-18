@@ -22,7 +22,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 7)
 transform = Transform3D(4.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 1, 0, 7)
 
 [node name="PlayerRoot" parent="." instance=ExtResource("2_rwluu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.11762, 0, 3.52488)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34838, 4.54738, 3.52488)
 
 [node name="Hut" type="Node3D" parent="."]
 
@@ -80,7 +80,7 @@ omni_attenuation = 0.0490365
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Hut"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.89996, 2.87579, 1.24155)
-light_color = Color(0.705882, 0.960784, 0.576471, 1)
+light_color = Color(0.709804, 0.956863, 0.615686, 1)
 light_energy = 0.5
 omni_range = 2.37385
 omni_attenuation = 0.0490365

@@ -1,8 +1,7 @@
 res://assets/environment/default_environment.tres
-res://scene/weapons/ar15.tscn
+res://scene/player/player.tscn
 res://assets/profiles/player/default_player_movement_profile.tres
 res://assets/ui/menu_ui.tres
+res://scene/weapons/ar15.tscn
 res://scene/testing/art_playground.tscn
-res://scene/player/player.tscn
 res://scene/testing/mechanics_playground.tscn
-res://scripts/player/movement/player_controller.gd

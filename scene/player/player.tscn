@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://wl6xyisrqvyq"]
+[gd_scene load_steps=9 format=3 uid="uid://wl6xyisrqvyq"]
 
 [ext_resource type="Script" path="res://scripts/player/movement/player_controller.gd" id="1_pp57v"]
+[ext_resource type="PackedScene" uid="uid://btxsip8fwa64c" path="res://assets/meshes/characters/soldier_arms.glb" id="1_vbfp1"]
 [ext_resource type="Resource" uid="uid://dro846moqw5p6" path="res://assets/profiles/camera/player_camera_motion_profile.tres" id="2_jc2um"]
 [ext_resource type="Resource" uid="uid://cjbovx78ng5dr" path="res://assets/profiles/player/default_player_movement_profile.tres" id="2_r8iwl"]
 [ext_resource type="Theme" uid="uid://dnt0ygiojji5s" path="res://assets/ui/menu_ui.tres" id="4_sdi6i"]
@@ -8,11 +9,6 @@
 [ext_resource type="Environment" uid="uid://dqdrmd1emcj6w" path="res://assets/environment/default_environment.tres" id="6_y60bl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_02qbt"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_y2tav"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k2xh2"]
-albedo_color = Color(1, 0.329412, 0.329412, 1)
 
 [node name="PlayerRoot" type="Node3D"]
 
@@ -28,11 +24,6 @@ vault_raycast = NodePath("RayCast3D")
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.427006, 0)
 shape = SubResource("CapsuleShape3D_02qbt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.427006, 0)
-mesh = SubResource("CapsuleMesh_y2tav")
-surface_material_override/0 = SubResource("StandardMaterial3D_k2xh2")
-
 [node name="CameraBase" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622, 0)
 
@@ -43,6 +34,9 @@ near = 0.001
 transform = Transform3D(1, 0, 0, 0, 0.629808, -0.77675, 0, 0.77675, 0.629808, 0, 0.55, -0.202)
 target_position = Vector3(0, -0.5, 0)
 
+[node name="soldier_arms" parent="CharacterBody3D" instance=ExtResource("1_vbfp1")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("player")]
 layout_mode = 3
 anchors_preset = 15
@@ -50,10 +44,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
 theme = ExtResource("4_sdi6i")
 script = ExtResource("5_yn5x0")
 environment = ExtResource("6_y60bl")
 player = NodePath("../CharacterBody3D")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 1
