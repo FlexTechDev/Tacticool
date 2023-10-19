@@ -24,3 +24,6 @@ func look_x_changed(value_changed: float) -> void:
 
 func look_y_changed(value_changed: float) -> void:
 	player.look_multiplier.y = value_changed;
+
+func fov_changed(value_changed: float) -> void:
+	player.camera.fov = value_changed;

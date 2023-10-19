@@ -17,7 +17,7 @@
 script = ExtResource("1_pp57v")
 camera_bob = ExtResource("2_jc2um")
 camera = NodePath("CameraBase/Camera3D")
-full_body_animation_manager = NodePath("soldier")
+full_body_animation_manager = NodePath("networked_soldier")
 arm_animation_manager = NodePath("CameraBase/arm_soldier")
 movement_settings = ExtResource("2_r8iwl")
 camera_node = NodePath("CameraBase")
@@ -43,7 +43,7 @@ camera = NodePath("../Camera3D")
 transform = Transform3D(1, 0, 0, 0, 0.62932, 0.777145, 0, -0.777145, 0.62932, 0, 0.55, 0.202)
 target_position = Vector3(0, -0.5, 0)
 
-[node name="soldier" parent="CharacterBody3D" node_paths=PackedStringArray("camera") instance=ExtResource("4_g1pwx")]
+[node name="networked_soldier" parent="CharacterBody3D" node_paths=PackedStringArray("camera") instance=ExtResource("4_g1pwx")]
 camera = NodePath("../CameraBase/Camera3D")
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("player")]
@@ -128,28 +128,39 @@ offset_bottom = -13.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
+[node name="XLook" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
 layout_mode = 2
 text = "look x sensitivity"
 
-[node name="HSlider" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
+[node name="XLookSlider" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.1
 
-[node name="Label2" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
+[node name="YLook" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
 layout_mode = 2
 text = "look Y sensitivity"
 
-[node name="HSlider2" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
+[node name="YLookSlider" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 0.1
+
+[node name="FOV" type="Label" parent="Control/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+text = "FOV"
+
+[node name="FOVSlider" type="HSlider" parent="Control/TabContainer/Controls/VBoxContainer"]
+layout_mode = 2
+min_value = 60.0
+step = 0.01
+value = 75.0
 
 [connection signal="toggled" from="Control/TabContainer/Graphics/VBoxContainer/SDFGI" to="Control" method="set_sdfgi"]
 [connection signal="toggled" from="Control/TabContainer/Graphics/VBoxContainer/SSAO" to="Control" method="set_ssao"]
 [connection signal="toggled" from="Control/TabContainer/Graphics/VBoxContainer/SSR" to="Control" method="set_ssr"]
-[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/HSlider" to="Control" method="look_x_changed"]
-[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/HSlider2" to="Control" method="look_y_changed"]
+[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/XLookSlider" to="Control" method="look_x_changed"]
+[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/YLookSlider" to="Control" method="look_y_changed"]
+[connection signal="value_changed" from="Control/TabContainer/Controls/VBoxContainer/FOVSlider" to="Control" method="fov_changed"]

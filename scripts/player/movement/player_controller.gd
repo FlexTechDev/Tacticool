@@ -59,7 +59,8 @@ func _process(delta: float) -> void:
 	else:
 		time += delta / movement_settings.sprint_magnifier;
 	
-	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector * Vector2(-1,1), time), delta * camera_bob.lean_speed);
+	if(is_on_floor()):
+		camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector * Vector2(-1,1), time), delta * camera_bob.lean_speed);
 	
 	if(Input.is_action_pressed("sprint")):
 		arm_animation_manager.move(input_vector, velocity.y);

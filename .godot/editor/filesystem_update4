@@ -1,11 +1,11 @@
 res://assets/environment/default_environment.tres
-res://scene/player/player.tscn
+res://scene/weapons/ar15.tscn
 res://assets/profiles/player/default_player_movement_profile.tres
 res://assets/ui/menu_ui.tres
-res://scripts/player/animation/player_animation_manager.gd
-res://scene/weapons/ar15.tscn
-res://scripts/player/movement/player_controller.gd
+res://scene/player/player.tscn
 res://scene/testing/mechanics_playground.tscn
 res://assets/meshes/characters/soldier_inherited.tscn
 res://assets/meshes/characters/soldier_arms_inherited.tscn
-res://scripts/player/animation/character_animation_manager.gd
+res://assets/profiles/camera/player_camera_motion_profile.tres
+res://scripts/player/movement/player_controller.gd
+res://scripts/settings/in_game_settings.gd
