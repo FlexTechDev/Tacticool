@@ -3,6 +3,8 @@ extends CharacterController
 @export var look_multiplier: Vector2 = Vector2(0.1, 0.1);
 @export var camera_bob: CameraMotionProfile;
 @export var camera: Camera3D;
+@export var full_body_animation_manager: AnimationManager
+@export var arm_animation_manager: ArmAnimationManager
 
 var time: float = 0;
 var input_appended: bool = false;
@@ -25,7 +27,7 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 
 func _process(delta: float) -> void:
-	var input_vector: Vector2 = Vector2(Input.get_axis("left", "right"), Input.get_axis("up", "down"));
+	var input_vector: Vector2 = Vector2(-Input.get_axis("left", "right"), Input.get_axis("down", "up"));
 	
 	if(Input.is_action_just_pressed("jump") && is_on_floor()):
 		jump();
@@ -45,17 +47,24 @@ func _process(delta: float) -> void:
 	if(!input_appended):
 		move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"), delta);
 	
-	if(Input.is_action_pressed("sprint") && input_vector.y < 0):
+	if(Input.is_action_pressed("sprint") && input_vector.y > 0):
 		time += delta;
 		if(Input.is_action_pressed("crouch") || Input.is_action_pressed("prone")):
 			slide(delta);
 			time = 0;
+		elif(Input.is_action_just_released("crouch") || Input.is_action_just_released("prone")):
+			sliding_time = 0;
 	elif(Input.is_action_just_released("sprint")):
 		time = 0;
 	else:
 		time += delta / movement_settings.sprint_magnifier;
 	
-	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector, time), delta * camera_bob.lean_speed);
+	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector * Vector2(-1,1), time), delta * camera_bob.lean_speed);
+	
+	if(Input.is_action_pressed("sprint")):
+		arm_animation_manager.move(input_vector, velocity.y);
+	else:
+		arm_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y);
 	
 	move_and_slide();
 
