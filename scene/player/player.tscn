@@ -13,15 +13,15 @@
 
 [node name="PlayerRoot" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera", "full_body_animation_manager", "arm_animation_manager", "camera_node", "vault_raycast")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera", "arm_animation_manager", "camera_node", "vault_raycast", "full_body_animation_manager")]
 script = ExtResource("1_pp57v")
 camera_bob = ExtResource("2_jc2um")
 camera = NodePath("CameraBase/Camera3D")
-full_body_animation_manager = NodePath("networked_soldier")
 arm_animation_manager = NodePath("CameraBase/arm_soldier")
 movement_settings = ExtResource("2_r8iwl")
 camera_node = NodePath("CameraBase")
 vault_raycast = NodePath("RayCast3D")
+full_body_animation_manager = NodePath("networked_soldier")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.427006, 0)

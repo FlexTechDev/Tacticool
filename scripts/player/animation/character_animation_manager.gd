@@ -9,10 +9,10 @@ class_name AnimationManager
 @export var skeleton: Skeleton3D;
 @export var look_ik_max_down_rotation: float = -15;
 @export var look_ik_max_up_rotation: float = 35;
-@export var enable_ik: bool = false;
+@export var enable_head_ik: bool = false;
 
 func _process(delta: float) -> void:
-	if(enable_ik):
+	if(enable_head_ik):
 		process_head_ik()
 	
 	tree.advance(delta * playback_speed);
@@ -25,6 +25,11 @@ func move(vector: Vector2, y_velocity: float) -> void:
 	elif(abs(y_velocity) > y_velocity_buffer):
 		playback_speed = 3;
 		set_falling(true);
+
+func set_sliding(value: bool) -> void:
+	if(tree.get("parameters/legs/conditions/not_falling")):
+		tree.set("parameters/legs/conditions/sliding", value);
+		tree.set("parameters/legs/conditions/not_sliding", !value);
 
 func set_falling(value: bool) -> void:
 	tree.set("parameters/legs/conditions/falling", value);

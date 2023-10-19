@@ -1,100 +1,43 @@
-[gd_scene load_steps=15 format=3 uid="uid://u3rjsaww1emi"]
+[gd_scene load_steps=4 format=3 uid="uid://u3rjsaww1emi"]
 
 [ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="1_18eit"]
 [ext_resource type="Script" path="res://scripts/player/animation/player_animation_manager.gd" id="2_sc5pi"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tuanx"]
-animation = &"Fall"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqerf"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_idj8v"]
-animation = &"Run_Forward"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4f3ng"]
-animation = &"Run_Backward"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5cyp1"]
-animation = &"Strafe_Right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6x0fd"]
-animation = &"Strafe_Left"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_seqts"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_lqerf")
-blend_point_0/pos = Vector2(0, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_idj8v")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_4f3ng")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_5cyp1")
-blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_6x0fd")
-blend_point_4/pos = Vector2(-1, 0)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a7mp1"]
-advance_mode = 2
-advance_condition = &"is_on_ground"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3cpbt"]
-xfade_time = 1.0
-advance_mode = 2
-advance_condition = &"falling"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_omxlf"]
-xfade_time = 0.5
-advance_mode = 2
-advance_condition = &"not_falling"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bnwpp"]
-states/Fall/node = SubResource("AnimationNodeAnimation_tuanx")
-states/Fall/position = Vector2(610, 216)
-states/Start/position = Vector2(288, 100)
-states/grounded/node = SubResource("AnimationNodeBlendSpace2D_seqts")
-states/grounded/position = Vector2(610, 100)
-transitions = ["Start", "grounded", SubResource("AnimationNodeStateMachineTransition_a7mp1"), "grounded", "Fall", SubResource("AnimationNodeStateMachineTransition_3cpbt"), "Fall", "grounded", SubResource("AnimationNodeStateMachineTransition_omxlf")]
-graph_offset = Vector2(-368, -80)
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_udelm"]
-graph_offset = Vector2(-712, 1)
-nodes/legs/node = SubResource("AnimationNodeStateMachine_bnwpp")
-nodes/legs/position = Vector2(-320, 180)
-node_connections = [&"output", 0, &"legs"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://dlbtraibw2iai" path="res://assets/animation/soldier_animation_graph.tres" id="3_j2ndm"]
 
 [node name="soldier" node_paths=PackedStringArray("tree", "skeleton") instance=ExtResource("1_18eit")]
 script = ExtResource("2_sc5pi")
 tree = NodePath("AnimationTree")
 skeleton = NodePath("Armature/Skeleton3D")
+enable_ik = null
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 0.265313, 0)
+bones/0/position = Vector3(0, 0.249236, 0)
 bones/2/rotation = Quaternion(-3.55271e-15, -1.4013e-45, -2.01948e-28, 1)
 bones/3/rotation = Quaternion(-3.55271e-15, -1.4013e-45, -2.01948e-28, 1)
-bones/4/rotation = Quaternion(0.13613, -0.197167, -0.897354, 0.370606)
-bones/5/rotation = Quaternion(0.555379, 3.08871e-09, 5.13917e-09, 0.831597)
+bones/4/rotation = Quaternion(0.0250676, 0.210558, -0.959691, 0.184472)
+bones/5/rotation = Quaternion(0.70598, -2.58167e-09, 1.80423e-09, 0.708231)
 bones/6/rotation = Quaternion(-0.00796716, -0.0312316, 0.00063701, 0.99948)
 bones/7/rotation = Quaternion(0.0017551, -0.000275713, -0.00776516, 0.999968)
 bones/8/rotation = Quaternion(0.00138701, -0.000217889, -0.00613662, 0.99998)
-bones/10/rotation = Quaternion(-0.0428156, -0.70551, 0.686865, 0.169232)
-bones/11/rotation = Quaternion(0.550143, -3.35409e-09, 1.2917e-08, 0.83507)
+bones/10/rotation = Quaternion(-0.0148636, -0.612882, 0.774445, 0.156173)
+bones/11/rotation = Quaternion(0.707751, -8.3812e-09, 1.64819e-08, 0.706462)
 bones/12/rotation = Quaternion(-0.00796716, 0.0312316, -0.00063701, 0.99948)
 bones/13/rotation = Quaternion(0.0017551, 0.000275713, 0.00776516, 0.999968)
 bones/14/rotation = Quaternion(0.00138701, 0.000217889, 0.00613662, 0.99998)
 bones/16/position = Vector3(0.134427, 0.0625475, -0.289535)
-bones/17/position = Vector3(0.156573, 0.000756263, 0.17353)
+bones/17/position = Vector3(0.156559, -0.0749179, 0.0821204)
 bones/18/position = Vector3(-0.134427, 0.0625475, -0.289536)
-bones/19/position = Vector3(-0.156573, -0.0582681, -0.147938)
-bones/20/rotation = Quaternion(0.701296, 0.0843545, -0.700125, -0.104367)
-bones/21/rotation = Quaternion(1.46761e-07, -1.84609e-10, -0.711635, 0.702549)
-bones/22/rotation = Quaternion(9.29702e-07, 3.69255e-05, 0.625703, 0.780061)
-bones/23/rotation = Quaternion(0.618514, 0.345932, 0.618179, 0.34004)
-bones/24/rotation = Quaternion(-1.69769e-08, 7.72173e-10, 0.30178, 0.953377)
-bones/25/rotation = Quaternion(-1.79781e-05, -0.000130312, -0.632639, 0.774447)
+bones/19/position = Vector3(-0.156559, -0.0903663, -0.0574088)
+bones/20/rotation = Quaternion(0.671578, -0.220101, -0.67697, 0.205549)
+bones/21/rotation = Quaternion(1.80916e-07, 2.0008e-09, -0.863667, 0.504062)
+bones/22/rotation = Quaternion(3.15477e-07, 3.93566e-05, 0.625881, 0.779919)
+bones/23/rotation = Quaternion(0.658288, 0.262311, 0.657613, 0.255726)
+bones/24/rotation = Quaternion(-2.21635e-08, 8.01795e-10, 0.406333, 0.913725)
+bones/25/rotation = Quaternion(-0.000293935, -0.00143818, -0.725047, 0.688698)
 bones/26/position = Vector3(0.0523888, -0.0898858, 0.233494)
-bones/27/position = Vector3(0.0524055, -0.0632481, -0.128837)
+bones/27/position = Vector3(0.0523575, -0.0925529, -0.0561638)
 bones/28/position = Vector3(-0.0523889, -0.0898858, 0.233493)
-bones/29/position = Vector3(-0.0524017, -0.165384, 0.129117)
+bones/29/position = Vector3(-0.0522992, -0.197112, 0.0564832)
 
 [node name="Circle" parent="Armature/Skeleton3D" index="0"]
 visible = false
@@ -120,10 +63,11 @@ layers = 2
 reset_on_save = false
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
-tree_root = SubResource("AnimationNodeBlendTree_udelm")
+tree_root = ExtResource("3_j2ndm")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/legs/conditions/falling = false
 parameters/legs/conditions/is_on_ground = true
 parameters/legs/conditions/not_falling = false
+parameters/legs/conditions/not_sliding = false
+parameters/legs/conditions/sliding = false
 parameters/legs/grounded/blend_position = Vector2(0.00153255, 0.919149)

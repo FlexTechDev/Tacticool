@@ -6,6 +6,7 @@ class_name CharacterController
 @export var camera_node: Node3D;
 @export var vault_raycast: RayCast3D
 @export var vault_cutoff_point: float = 0.3;
+@export var full_body_animation_manager: AnimationManager
 
 var last_movement_input_vector: Vector2
 var is_sliding: bool = false
@@ -22,7 +23,7 @@ func _physics_process(delta: float) -> void:
 func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 	if(!is_sprinting):
 		vector = vector.normalized();
-	elif(is_sprinting && vector.rotated(rotation.y).y < 0):
+	elif(is_sprinting && vector.rotated(rotation.y).y > 0):
 		if(is_sliding && last_movement_input_vector != null):
 			vector = last_movement_input_vector.normalized() * movement_settings.sprint_magnifier;
 		else:
@@ -34,6 +35,7 @@ func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 	
 	last_movement_input_vector = vector;
 	
+	full_body_animation_manager.set_sliding(false);
 	is_sliding = false;
 
 func try_vault() -> Vector3:
@@ -45,6 +47,7 @@ func try_vault() -> Vector3:
 
 func slide(delta: float) -> void:
 	is_sliding = true;
+	full_body_animation_manager.set_sliding(true);
 	
 	velocity.x *= movement_settings.slide_speed_dropoff.sample(sliding_time);
 	velocity.z *= movement_settings.slide_speed_dropoff.sample(sliding_time);
