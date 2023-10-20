@@ -4,40 +4,33 @@
 [ext_resource type="Script" path="res://scripts/player/animation/player_animation_manager.gd" id="2_sc5pi"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dlbtraibw2iai" path="res://assets/animation/soldier_animation_graph.tres" id="3_j2ndm"]
 
-[node name="soldier" node_paths=PackedStringArray("tree", "skeleton") instance=ExtResource("1_18eit")]
+[node name="soldier2" node_paths=PackedStringArray("tree", "skeleton") instance=ExtResource("1_18eit")]
 script = ExtResource("2_sc5pi")
 tree = NodePath("AnimationTree")
 skeleton = NodePath("Armature/Skeleton3D")
-enable_ik = null
+enable_head_ik = true
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 0.249236, 0)
-bones/2/rotation = Quaternion(-3.55271e-15, -1.4013e-45, -2.01948e-28, 1)
-bones/3/rotation = Quaternion(-3.55271e-15, -1.4013e-45, -2.01948e-28, 1)
-bones/4/rotation = Quaternion(0.0250676, 0.210558, -0.959691, 0.184472)
-bones/5/rotation = Quaternion(0.70598, -2.58167e-09, 1.80423e-09, 0.708231)
-bones/6/rotation = Quaternion(-0.00796716, -0.0312316, 0.00063701, 0.99948)
-bones/7/rotation = Quaternion(0.0017551, -0.000275713, -0.00776516, 0.999968)
-bones/8/rotation = Quaternion(0.00138701, -0.000217889, -0.00613662, 0.99998)
-bones/10/rotation = Quaternion(-0.0148636, -0.612882, 0.774445, 0.156173)
-bones/11/rotation = Quaternion(0.707751, -8.3812e-09, 1.64819e-08, 0.706462)
-bones/12/rotation = Quaternion(-0.00796716, 0.0312316, -0.00063701, 0.99948)
-bones/13/rotation = Quaternion(0.0017551, 0.000275713, 0.00776516, 0.999968)
-bones/14/rotation = Quaternion(0.00138701, 0.000217889, 0.00613662, 0.99998)
-bones/16/position = Vector3(0.134427, 0.0625475, -0.289535)
-bones/17/position = Vector3(0.156559, -0.0749179, 0.0821204)
-bones/18/position = Vector3(-0.134427, 0.0625475, -0.289536)
-bones/19/position = Vector3(-0.156559, -0.0903663, -0.0574088)
-bones/20/rotation = Quaternion(0.671578, -0.220101, -0.67697, 0.205549)
-bones/21/rotation = Quaternion(1.80916e-07, 2.0008e-09, -0.863667, 0.504062)
-bones/22/rotation = Quaternion(3.15477e-07, 3.93566e-05, 0.625881, 0.779919)
-bones/23/rotation = Quaternion(0.658288, 0.262311, 0.657613, 0.255726)
-bones/24/rotation = Quaternion(-2.21635e-08, 8.01795e-10, 0.406333, 0.913725)
-bones/25/rotation = Quaternion(-0.000293935, -0.00143818, -0.725047, 0.688698)
-bones/26/position = Vector3(0.0523888, -0.0898858, 0.233494)
-bones/27/position = Vector3(0.0523575, -0.0925529, -0.0561638)
-bones/28/position = Vector3(-0.0523889, -0.0898858, 0.233493)
-bones/29/position = Vector3(-0.0522992, -0.197112, 0.0564832)
+bones/4/rotation = Quaternion(-0.241491, 0.0934888, -0.659016, 0.706145)
+bones/5/rotation = Quaternion(0.776294, -1.52088e-09, -8.90751e-09, 0.630371)
+bones/6/rotation = Quaternion(-0.0385868, -0.376729, 0.00768387, 0.925487)
+bones/7/rotation = Quaternion(0.021673, -0.00340465, -0.0958885, 0.99515)
+bones/8/rotation = Quaternion(0.017138, -0.00269224, -0.0758242, 0.99697)
+bones/10/rotation = Quaternion(-0.241491, -0.093489, 0.659016, 0.706145)
+bones/11/rotation = Quaternion(0.776294, -1.76254e-09, 3.65861e-09, 0.630371)
+bones/12/rotation = Quaternion(-0.0385868, 0.376729, -0.00768387, 0.925487)
+bones/13/rotation = Quaternion(0.021673, 0.00340464, 0.0958885, 0.99515)
+bones/14/rotation = Quaternion(0.017138, 0.00269226, 0.0758242, 0.99697)
+bones/17/position = Vector3(0.243505, 0.0935743, 0.0788185)
+bones/19/position = Vector3(-0.243505, 0.0935743, 0.0788184)
+bones/20/rotation = Quaternion(0.707913, -0.0349818, -0.704841, 0.0288804)
+bones/21/rotation = Quaternion(2.23684e-08, -7.13032e-10, -0.108901, 0.994053)
+bones/22/rotation = Quaternion(1.45537e-05, 0.000446179, 0.658211, 0.752833)
+bones/23/rotation = Quaternion(0.707913, 0.0349811, 0.704841, 0.0288796)
+bones/24/rotation = Quaternion(-6.37389e-09, 1.2078e-09, 0.108899, 0.994053)
+bones/25/rotation = Quaternion(1.45556e-05, -0.000446176, -0.658211, 0.752833)
+bones/27/position = Vector3(0.0522884, -0.224585, -0.00639058)
+bones/29/position = Vector3(-0.0522884, -0.224585, -0.00639061)
 
 [node name="Circle" parent="Armature/Skeleton3D" index="0"]
 visible = false

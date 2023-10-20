@@ -1,10 +1,10 @@
 [gd_resource type="AnimationNodeBlendTree" load_steps=15 format=3 uid="uid://dlbtraibw2iai"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2oda8"]
-animation = &"Fall"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tuanx"]
 animation = &"Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cgtk2"]
+animation = &"Slide"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lqerf"]
 animation = &"Idle"
@@ -47,29 +47,27 @@ xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"not_falling"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nl0yb"]
-xfade_time = 0.5
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lly34"]
 advance_mode = 2
 advance_condition = &"sliding"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_73yle"]
-xfade_time = 1.0
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5jevj"]
 advance_mode = 2
 advance_condition = &"not_sliding"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bnwpp"]
 states/Fall/node = SubResource("AnimationNodeAnimation_tuanx")
 states/Fall/position = Vector2(462, 212)
-"states/Fall 2/node" = SubResource("AnimationNodeAnimation_2oda8")
-"states/Fall 2/position" = Vector2(607.264, 100)
+states/Slide/node = SubResource("AnimationNodeAnimation_cgtk2")
+states/Slide/position = Vector2(588.264, 99.3605)
 states/Start/position = Vector2(288, 100)
 states/grounded/node = SubResource("AnimationNodeBlendSpace2D_seqts")
 states/grounded/position = Vector2(462, 100)
-transitions = ["Start", "grounded", SubResource("AnimationNodeStateMachineTransition_a7mp1"), "grounded", "Fall", SubResource("AnimationNodeStateMachineTransition_3cpbt"), "Fall", "grounded", SubResource("AnimationNodeStateMachineTransition_omxlf"), "grounded", "Fall 2", SubResource("AnimationNodeStateMachineTransition_nl0yb"), "Fall 2", "grounded", SubResource("AnimationNodeStateMachineTransition_73yle")]
-graph_offset = Vector2(124.264, 4.36052)
+transitions = ["Start", "grounded", SubResource("AnimationNodeStateMachineTransition_a7mp1"), "grounded", "Fall", SubResource("AnimationNodeStateMachineTransition_3cpbt"), "Fall", "grounded", SubResource("AnimationNodeStateMachineTransition_omxlf"), "grounded", "Slide", SubResource("AnimationNodeStateMachineTransition_lly34"), "Slide", "grounded", SubResource("AnimationNodeStateMachineTransition_5jevj")]
+graph_offset = Vector2(-39.736, 5.36052)
 
 [resource]
-graph_offset = Vector2(-562.541, 19.703)
+graph_offset = Vector2(-727, 26)
 nodes/legs/node = SubResource("AnimationNodeStateMachine_bnwpp")
 nodes/legs/position = Vector2(-320, 180)
 node_connections = [&"output", 0, &"legs"]
