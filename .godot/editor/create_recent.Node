@@ -1,3 +1,6 @@
+VoxelGI
+LightmapGI
+Node3D
 SkeletonIK3D
 AnimationTree
 Panel
@@ -10,14 +13,11 @@ CheckBox
 TabBar
 TabContainer
 ShapeCast3D
-VoxelGI
-LightmapGI
 Node
 RayCast3D
 CollisionShape3D
 StaticBody3D
 OmniLight3D
-Node3D
 SpotLight3D
 Camera3D
 MeshInstance3D

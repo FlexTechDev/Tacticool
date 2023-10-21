@@ -7,5 +7,3 @@ res://scene/player/player.tscn
 res://scene/testing/mechanics_playground.tscn
 res://assets/meshes/characters/soldier_inherited.tscn
 res://assets/meshes/characters/soldier_arms_inherited.tscn
-res://scripts/player/movement/player_controller.gd
-res://scripts/player/animation/character_animation_manager.gd
