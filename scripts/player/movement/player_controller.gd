@@ -4,6 +4,7 @@ extends CharacterController
 @export var camera_bob: CameraMotionProfile;
 @export var camera: Camera3D;
 @export var arm_animation_manager: ArmAnimationManager
+@export var arms: Node3D;
 
 var time: float = 0;
 var input_appended: bool = false;
@@ -12,6 +13,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 
 func _input(event: InputEvent) -> void:
+	#camera look code
 	if(event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
 		var look_delta: Vector2 = event.relative;
 		
@@ -20,22 +22,27 @@ func _input(event: InputEvent) -> void:
 		
 		look_angle(-look_delta);
 	
+	#lock and unlock mouse
 	if(event.is_action_pressed("escape") && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE;
 	elif(event.is_action_pressed("escape") && Input.mouse_mode == Input.MOUSE_MODE_VISIBLE):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
 
 func _process(delta: float) -> void:
+	
 	var input_vector: Vector2 = Vector2(-Input.get_axis("left", "right"), Input.get_axis("down", "up"));
 	
+	#jumping, crouching and proning
 	if(Input.is_action_just_pressed("jump") && is_on_floor()):
 		jump();
 	elif(Input.is_action_pressed("jump") && !is_on_floor() && try_vault() != Vector3.ZERO):
 		current_vault_position = try_vault();
 		append_movement_input(0.75);
+		arm_animation_manager.vault(0.75);
 	elif(Input.is_action_pressed("prone") && !is_on_floor() && try_vault() != Vector3.ZERO):
 		current_vault_position = Vector3.ZERO;
 	
+	#vaulting
 	if(current_vault_position != null && current_vault_position != Vector3.ZERO):
 		velocity = Vector3.ZERO;
 		global_position = global_position.lerp(current_vault_position, delta * 3);
@@ -46,6 +53,7 @@ func _process(delta: float) -> void:
 	if(!input_appended):
 		move(input_vector.rotated(-rotation.y), Input.is_action_pressed("sprint"), delta);
 	
+	#sliding code is here
 	if(Input.is_action_pressed("sprint") && input_vector.y > 0):
 		time += delta;
 		if(Input.is_action_pressed("crouch") || Input.is_action_pressed("prone")):
@@ -59,12 +67,15 @@ func _process(delta: float) -> void:
 	else:
 		time += delta / movement_settings.sprint_magnifier;
 	
+	#sliding animation code is also here
 	if(Input.is_action_just_released("crouch") || Input.is_action_just_released("prone")):
 		arm_animation_manager.set_sliding(false);
 	
+	#camera bob
 	if(is_on_floor()):
 		camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector * Vector2(-1,1), time), delta * camera_bob.lean_speed);
 	
+	#sprint speed for animations
 	if(Input.is_action_pressed("sprint")):
 		arm_animation_manager.move(input_vector, velocity.y);
 	else:
@@ -73,6 +84,7 @@ func _process(delta: float) -> void:
 	move_and_slide();
 
 func append_movement_input(time_in_seconds: float) -> void:
+	#sets a timer and does not movement take input until timer is up
 	input_appended = true;
 	await get_tree().create_timer(time_in_seconds).timeout;
 	input_appended = false;

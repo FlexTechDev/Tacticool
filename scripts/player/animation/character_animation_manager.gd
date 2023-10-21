@@ -35,6 +35,16 @@ func set_falling(value: bool) -> void:
 	tree.set("parameters/legs/conditions/falling", value);
 	tree.set("parameters/legs/conditions/not_falling", !value);
 
+func vault(dead_time: float) -> void:
+	playback_speed = 3;
+	tree.set("parameters/legs/conditions/vaulting", true);
+	tree.set("parameters/legs/conditions/not_vaulting", false);
+	
+	await get_tree().create_timer(dead_time).timeout;
+	
+	tree.set("parameters/legs/conditions/vaulting", false);
+	tree.set("parameters/legs/conditions/not_vaulting", true);
+
 func process_head_ik() -> void:
 	var bone_id: int = skeleton.find_bone("Gut");
 	

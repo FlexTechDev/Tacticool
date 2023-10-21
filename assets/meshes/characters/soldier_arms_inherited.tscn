@@ -62,5 +62,7 @@ parameters/legs/conditions/falling = false
 parameters/legs/conditions/is_on_ground = true
 parameters/legs/conditions/not_falling = false
 parameters/legs/conditions/not_sliding = false
+parameters/legs/conditions/not_vaulting = false
 parameters/legs/conditions/sliding = false
+parameters/legs/conditions/vaulting = false
 parameters/legs/grounded/blend_position = Vector2(0.00153255, 0.919149)
