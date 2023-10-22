@@ -1,9 +1,12 @@
 res://assets/environment/default_environment.tres
-res://scene/weapons/ar15.tscn
+res://assets/meshes/characters/soldier_inherited.tscn
 res://assets/profiles/player/default_player_movement_profile.tres
 res://assets/animation/soldier_animation_graph.tres
 res://assets/ui/menu_ui.tres
+res://assets/animation/no_gun/no_gun.tres
+res://assets/animation/no_gun/n.tres
+res://scripts/player/animation/character_animation_manager.gd
+res://scene/weapons/ar15.tscn
 res://scene/player/player.tscn
 res://scene/testing/mechanics_playground.tscn
-res://assets/meshes/characters/soldier_inherited.tscn
 res://assets/meshes/characters/soldier_arms_inherited.tscn
