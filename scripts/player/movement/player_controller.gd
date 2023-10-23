@@ -39,6 +39,7 @@ func _process(delta: float) -> void:
 		current_vault_position = try_vault();
 		append_movement_input(0.75);
 		arm_animation_manager.vault(0.75);
+		full_body_animation_manager.vault(0.75);
 	elif(Input.is_action_pressed("prone") && !is_on_floor() && try_vault() != Vector3.ZERO):
 		current_vault_position = Vector3.ZERO;
 	
@@ -58,10 +59,13 @@ func _process(delta: float) -> void:
 		time += delta;
 		if(Input.is_action_pressed("crouch") || Input.is_action_pressed("prone")):
 			slide(delta);
+			input_appended = true;
 			arm_animation_manager.set_sliding(true);
+			full_body_animation_manager.set_sliding(true);
 			time = 0;
 		elif(Input.is_action_just_released("crouch") || Input.is_action_just_released("prone")):
 			sliding_time = 0;
+			input_appended = false;
 	elif(Input.is_action_just_released("sprint")):
 		time = 0;
 	else:
@@ -70,6 +74,7 @@ func _process(delta: float) -> void:
 	#sliding animation code is also here
 	if(Input.is_action_just_released("crouch") || Input.is_action_just_released("prone")):
 		arm_animation_manager.set_sliding(false);
+		full_body_animation_manager.set_sliding(false);
 	
 	#camera bob
 	if(is_on_floor()):
@@ -78,9 +83,10 @@ func _process(delta: float) -> void:
 	#sprint speed for animations
 	if(Input.is_action_pressed("sprint")):
 		arm_animation_manager.move(input_vector, velocity.y, true);
+		full_body_animation_manager.move(input_vector, velocity.y, true);
 	else:
 		arm_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y, false);
-	
+		full_body_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y, true);
 	move_and_slide();
 
 func append_movement_input(time_in_seconds: float) -> void:

@@ -8,7 +8,7 @@ const WeaponType = {
 }
 
 @export var tree: AnimationTree;
-@export var playback_speed: float = 1;
+@export var playback_speed: float = 3;
 @export var y_velocity_buffer: float = 0.1;
 @export var camera: Camera3D;
 @export var skeleton: Skeleton3D;
@@ -36,15 +36,8 @@ func _process(delta: float) -> void:
 func move(vector: Vector2, y_velocity: float, sprinting: bool) -> void:
 	if(abs(y_velocity) <= y_velocity_buffer):
 		playback_speed = 3;
+		vector.x *= -1;
 		tree.set("parameters/legs/moving/blend_position", lerp(tree.get("parameters/legs/moving/blend_position"), vector, 0.05));
-		
-		if(current_weapon == "no_gun"):
-			tree.set("parameters/arms/no_gun/moving/blend_position", lerp(tree.get("parameters/arms/no_gun/moving/blend_position"), vector, 0.05));
-		else:
-			if(sprinting):
-				tree.set("parameters/arms/" + current_weapon + "/conditions/sprinting", true);
-			else:
-				tree.set("parameters/arms/" + current_weapon + "/conditions/sprinting", false);
 		
 		set_falling(false);
 	elif(abs(y_velocity) > y_velocity_buffer):
@@ -55,40 +48,20 @@ func set_sliding(value: bool) -> void:
 	if(tree.get("parameters/legs/conditions/not_falling")):
 		tree.set("parameters/legs/conditions/sliding", value);
 		tree.set("parameters/legs/conditions/not_sliding", !value);
-	if(current_weapon == "no_gun"):
-		tree.set("parameters/arms/no_gun/conditions/sliding", value);
-		tree.set("parameters/arms/no_gun/conditions/not_sliding", !value);
-	else:
-		pass
 
 func set_falling(value: bool) -> void:
 	tree.set("parameters/legs/conditions/falling", value);
 	tree.set("parameters/legs/conditions/not_falling", !value);
-	if(current_weapon == "no_gun"):
-		tree.set("parameters/arms/no_gun/conditions/falling", value);
-		tree.set("parameters/arms/no_gun/conditions/not_falling", !value);
-	else:
-		pass
 
 func vault(dead_time: float) -> void:
 	playback_speed = 3;
 	tree.set("parameters/legs/conditions/vaulting", true);
 	tree.set("parameters/legs/conditions/not_vaulting", false);
-	if(current_weapon == "no_gun"):
-		tree.set("parameters/arms/no_gun/conditions/vaulting", true);
-		tree.set("parameters/arms/no_gun/conditions/not_vaulting", false);
-	else:
-		pass
 	
 	await get_tree().create_timer(dead_time).timeout;
 	
 	tree.set("parameters/legs/conditions/vaulting", false);
 	tree.set("parameters/legs/conditions/not_vaulting", true);
-	if(current_weapon == "no_gun"):
-		tree.set("parameters/arms/no_gun/conditions/vaulting", false);
-		tree.set("parameters/arms/no_gun/conditions/not_vaulting", true);
-	else:
-		pass
 
 func process_head_ik() -> void:
 	var bone_id: int = skeleton.find_bone("Gut");

@@ -9,4 +9,4 @@ enum Team{
 	BLUE
 }
 
-var spawn_point_affiliation: Team = Team.NEUTRAL;
+@export var spawn_point_affiliation: Team = Team.NEUTRAL;

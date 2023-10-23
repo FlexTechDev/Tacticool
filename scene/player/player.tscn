@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://wl6xyisrqvyq"]
+[gd_scene load_steps=11 format=3 uid="uid://wl6xyisrqvyq"]
 
 [ext_resource type="Script" path="res://scripts/player/movement/player_controller.gd" id="1_pp57v"]
 [ext_resource type="Resource" uid="uid://dro846moqw5p6" path="res://assets/profiles/camera/player_camera_motion_profile.tres" id="2_jc2um"]
@@ -10,6 +10,9 @@
 [ext_resource type="Environment" uid="uid://dqdrmd1emcj6w" path="res://assets/environment/default_environment.tres" id="6_y60bl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_02qbt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrk0f"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 0.662745)
 
 [node name="PlayerRoot" type="Node3D"]
 
@@ -39,6 +42,7 @@ near = 0.001
 
 [node name="arm_soldier" parent="CharacterBody3D/CameraBase" node_paths=PackedStringArray("camera") instance=ExtResource("4_2fcmg")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.584, 0)
+visible = false
 camera = NodePath("../Camera3D")
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
@@ -69,6 +73,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jrk0f")
 
 [node name="TabContainer" type="TabContainer" parent="Control"]
 layout_mode = 1

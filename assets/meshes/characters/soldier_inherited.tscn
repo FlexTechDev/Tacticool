@@ -8,6 +8,7 @@
 script = ExtResource("2_jri8s")
 tree = NodePath("AnimationTree")
 skeleton = NodePath("Armature/Skeleton3D")
+enable_head_ik = true
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
@@ -66,23 +67,6 @@ reset_on_save = false
 tree_root = ExtResource("3_ia1uj")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Blend2/blend_amount = 0.0
-parameters/Transition/current_state = ""
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = -1
-parameters/arms/conditions/AR15 = false
-parameters/arms/conditions/no_gun = false
-parameters/arms/AR15/conditions/not_scoping = false
-parameters/arms/AR15/conditions/not_sprinting = false
-parameters/arms/AR15/conditions/scoping = false
-parameters/arms/AR15/conditions/sprinting = false
-parameters/arms/no_gun/conditions/falling = false
-parameters/arms/no_gun/conditions/not_falling = false
-parameters/arms/no_gun/conditions/not_sliding = false
-parameters/arms/no_gun/conditions/not_vaulting = false
-parameters/arms/no_gun/conditions/sliding = false
-parameters/arms/no_gun/conditions/vaulting = false
-parameters/arms/no_gun/moving/blend_position = Vector2(0, 0)
 parameters/legs/conditions/falling = false
 parameters/legs/conditions/not_falling = false
 parameters/legs/conditions/not_sliding = false

@@ -8,7 +8,6 @@
 script = ExtResource("2_sc5pi")
 tree = NodePath("AnimationTree")
 skeleton = NodePath("Armature/Skeleton3D")
-enable_head_ik = true
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/2/rotation = Quaternion(0.105234, 1.11642e-16, 2.50898e-08, 0.994447)
@@ -20,7 +19,6 @@ bones/7/rotation = Quaternion(0.021673, -0.00340467, -0.0958885, 0.99515)
 bones/8/rotation = Quaternion(0.017138, -0.00269225, -0.0758242, 0.99697)
 bones/10/rotation = Quaternion(0.34579, 0.123826, 0.789728, 0.491351)
 bones/11/rotation = Quaternion(0.362323, 1.60694e-08, -7.68313e-09, 0.932053)
-bones/12/rotation = Quaternion(-0.0385868, 0.376729, -0.00768389, 0.925487)
 bones/13/rotation = Quaternion(0.021673, 0.00340465, 0.0958885, 0.99515)
 bones/14/rotation = Quaternion(0.017138, 0.00269225, 0.0758242, 0.99697)
 bones/17/position = Vector3(0.194889, -0.0519141, 0.17954)
@@ -62,23 +60,6 @@ reset_on_save = false
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = ExtResource("3_j2ndm")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Blend2/blend_amount = 1.0
-parameters/Transition/current_state = ""
-parameters/Transition/transition_request = ""
-parameters/Transition/current_index = -1
-parameters/arms/conditions/AR15 = false
-parameters/arms/conditions/no_gun = false
-parameters/arms/AR15/conditions/not_scoping = false
-parameters/arms/AR15/conditions/not_sprinting = false
-parameters/arms/AR15/conditions/scoping = false
-parameters/arms/AR15/conditions/sprinting = false
-parameters/arms/no_gun/conditions/falling = false
-parameters/arms/no_gun/conditions/not_falling = false
-parameters/arms/no_gun/conditions/not_sliding = false
-parameters/arms/no_gun/conditions/not_vaulting = false
-parameters/arms/no_gun/conditions/sliding = false
-parameters/arms/no_gun/conditions/vaulting = false
-parameters/arms/no_gun/moving/blend_position = Vector2(0, 0)
 parameters/legs/conditions/falling = false
 parameters/legs/conditions/not_falling = false
 parameters/legs/conditions/not_sliding = false

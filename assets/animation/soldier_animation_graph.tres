@@ -1,152 +1,4 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=54 format=3 uid="uid://dlbtraibw2iai"]
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cjoq4"]
-filters = ["Armature/Skeleton3D:Arm_IK_Pole.L", "Armature/Skeleton3D:Arm_IK_Pole.R", "Armature/Skeleton3D:Arm_IK_Target.L", "Armature/Skeleton3D:Arm_IK_Target.R", "Armature/Skeleton3D:Chest", "Armature/Skeleton3D:Gut", "Armature/Skeleton3D:Hand.L", "Armature/Skeleton3D:Hand.R", "Armature/Skeleton3D:Head", "Armature/Skeleton3D:LowerArm.L", "Armature/Skeleton3D:LowerArm.R", "Armature/Skeleton3D:LowerGrip.L", "Armature/Skeleton3D:LowerGrip.R", "Armature/Skeleton3D:UpperArm.L", "Armature/Skeleton3D:UpperArm.R", "Armature/Skeleton3D:UpperGrip.L", "Armature/Skeleton3D:UpperGrip.R"]
-
-[sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_ndwht"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gs0rl"]
-animation = &"AR15_Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ltjqs"]
-animation = &"AR15_Run"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nf0ux"]
-animation = &"AR15_Scope"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0xm4b"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_euxlp"]
-advance_mode = 2
-advance_condition = &"scoping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d51oq"]
-advance_mode = 2
-advance_condition = &"not_scoping"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eth2v"]
-advance_mode = 2
-advance_condition = &"sprinting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n27v7"]
-advance_mode = 2
-advance_condition = &"not_sprinting"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m5rib"]
-states/AR15_Idle/node = SubResource("AnimationNodeAnimation_gs0rl")
-states/AR15_Idle/position = Vector2(345, 100)
-states/AR15_Run/node = SubResource("AnimationNodeAnimation_ltjqs")
-states/AR15_Run/position = Vector2(345, 178)
-states/AR15_Scope/node = SubResource("AnimationNodeAnimation_nf0ux")
-states/AR15_Scope/position = Vector2(491, 100)
-transitions = ["Start", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_0xm4b"), "AR15_Idle", "AR15_Scope", SubResource("AnimationNodeStateMachineTransition_euxlp"), "AR15_Scope", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_d51oq"), "AR15_Idle", "AR15_Run", SubResource("AnimationNodeStateMachineTransition_eth2v"), "AR15_Run", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_n27v7")]
-graph_offset = Vector2(-339, -45)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_eedw0"]
-animation = &"Fall"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m8fjf"]
-animation = &"Slide"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_efkdy"]
-animation = &"Vault"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wf7e1"]
-animation = &"Idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g4s50"]
-animation = &"Run_Forward"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qpe3l"]
-animation = &"Run_Backward"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1gft"]
-animation = &"Strafe_Right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ic4h0"]
-animation = &"Strafe_Left"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_4vk5m"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_wf7e1")
-blend_point_0/pos = Vector2(0, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_g4s50")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_qpe3l")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_g1gft")
-blend_point_3/pos = Vector2(1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_ic4h0")
-blend_point_4/pos = Vector2(-1, 0)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_woycc"]
-xfade_time = 0.5
-advance_mode = 2
-advance_condition = &"sliding"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_52cdl"]
-xfade_time = 1.0
-advance_mode = 2
-advance_condition = &"not_sliding"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_txsln"]
-xfade_time = 0.5
-advance_mode = 2
-advance_condition = &"falling"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vena3"]
-xfade_time = 1.0
-advance_mode = 2
-advance_condition = &"not_falling"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q0md6"]
-xfade_time = 0.5
-advance_mode = 2
-advance_condition = &"vaulting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6iiys"]
-xfade_time = 0.5
-advance_mode = 2
-advance_condition = &"not_vaulting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81a5g"]
-xfade_time = 0.5
-advance_mode = 2
-advance_condition = &"vaulting"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bssg"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pyenr"]
-states/Fall/node = SubResource("AnimationNodeAnimation_eedw0")
-states/Fall/position = Vector2(387, 189)
-states/Slide/node = SubResource("AnimationNodeAnimation_m8fjf")
-states/Slide/position = Vector2(562, 100)
-states/Vault/node = SubResource("AnimationNodeAnimation_efkdy")
-states/Vault/position = Vector2(562, 189)
-states/moving/node = SubResource("AnimationNodeBlendSpace2D_4vk5m")
-states/moving/position = Vector2(387, 100)
-transitions = ["moving", "Slide", SubResource("AnimationNodeStateMachineTransition_woycc"), "Slide", "moving", SubResource("AnimationNodeStateMachineTransition_52cdl"), "moving", "Fall", SubResource("AnimationNodeStateMachineTransition_txsln"), "Fall", "moving", SubResource("AnimationNodeStateMachineTransition_vena3"), "moving", "Vault", SubResource("AnimationNodeStateMachineTransition_q0md6"), "Vault", "moving", SubResource("AnimationNodeStateMachineTransition_6iiys"), "Fall", "Vault", SubResource("AnimationNodeStateMachineTransition_81a5g"), "Start", "moving", SubResource("AnimationNodeStateMachineTransition_1bssg")]
-graph_offset = Vector2(-366, 2)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usb1o"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ntsj6"]
-advance_mode = 2
-advance_condition = &"AR15"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eekw1"]
-advance_mode = 2
-advance_condition = &"no_gun"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fp5ww"]
-states/AR15/node = SubResource("AnimationNodeStateMachine_m5rib")
-states/AR15/position = Vector2(367, 187)
-states/no_gun/node = SubResource("AnimationNodeStateMachine_pyenr")
-states/no_gun/position = Vector2(367, 100)
-transitions = ["Start", "no_gun", SubResource("AnimationNodeStateMachineTransition_usb1o"), "no_gun", "AR15", SubResource("AnimationNodeStateMachineTransition_ntsj6"), "AR15", "no_gun", SubResource("AnimationNodeStateMachineTransition_eekw1")]
-graph_offset = Vector2(-444, -13)
+[gd_resource type="AnimationNodeBlendTree" load_steps=21 format=3 uid="uid://dlbtraibw2iai"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qbkm2"]
 animation = &"Fall"
@@ -185,30 +37,37 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_1y6ii")
 blend_point_4/pos = Vector2(-1, 0)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6yso8"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"sliding"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rpuma"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"not_sliding"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_swysr"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"vaulting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o0eg6"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"not_vaulting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7wown"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"vaulting"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hmtnv"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"falling"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ykoei"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"not_falling"
 
@@ -216,10 +75,12 @@ advance_condition = &"not_falling"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mhfvj"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"sliding"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q468d"]
+xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"falling"
 
@@ -234,16 +95,11 @@ states/Vault/position = Vector2(538, 204)
 states/moving/node = SubResource("AnimationNodeBlendSpace2D_niw1u")
 states/moving/position = Vector2(377, 100)
 transitions = ["moving", "Slide", SubResource("AnimationNodeStateMachineTransition_6yso8"), "Slide", "moving", SubResource("AnimationNodeStateMachineTransition_rpuma"), "moving", "Vault", SubResource("AnimationNodeStateMachineTransition_swysr"), "Vault", "moving", SubResource("AnimationNodeStateMachineTransition_o0eg6"), "Fall", "Vault", SubResource("AnimationNodeStateMachineTransition_7wown"), "moving", "Fall", SubResource("AnimationNodeStateMachineTransition_hmtnv"), "Fall", "moving", SubResource("AnimationNodeStateMachineTransition_ykoei"), "Start", "moving", SubResource("AnimationNodeStateMachineTransition_6qicl"), "Fall", "Slide", SubResource("AnimationNodeStateMachineTransition_mhfvj"), "Slide", "Fall", SubResource("AnimationNodeStateMachineTransition_q468d")]
-graph_offset = Vector2(-505, -27)
+graph_offset = Vector2(-498, -8)
 
 [resource]
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_cjoq4")
-nodes/Blend2/position = Vector2(-20, 80)
-nodes/Transition/node = SubResource("AnimationNodeTransition_ndwht")
-nodes/Transition/position = Vector2(-397, 340)
-nodes/arms/node = SubResource("AnimationNodeStateMachine_fp5ww")
-nodes/arms/position = Vector2(-780, 280)
+graph_offset = Vector2(-933.273, -40.7273)
 nodes/legs/node = SubResource("AnimationNodeStateMachine_t3caq")
 nodes/legs/position = Vector2(-420, 0)
 nodes/output/position = Vector2(200, 100)
-node_connections = [&"output", 0, &"legs", &"Blend2", 1, &"Transition"]
+node_connections = [&"output", 0, &"legs"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://pu2yiqtdqcns"]
+[gd_scene load_steps=10 format=3 uid="uid://pu2yiqtdqcns"]
 
 [ext_resource type="Theme" uid="uid://dnt0ygiojji5s" path="res://assets/ui/menu_ui.tres" id="1_b6j6r"]
 [ext_resource type="Script" path="res://scripts/menu/main_menu_manager.gd" id="2_ni46m"]
 [ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="2_vwgt0"]
 [ext_resource type="PackedScene" uid="uid://6ckcmk0a7v73" path="res://scene/testing/mechanics_playground.tscn" id="3_smegl"]
 [ext_resource type="Script" path="res://scripts/menu/game_mode_manager.gd" id="3_yr1fd"]
+[ext_resource type="PackedScene" uid="uid://defg4j32shmsi" path="res://scene/testing/multiplayer_testing.tscn" id="4_ev4te"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qasco"]
 bg_color = Color(0.290196, 0.517647, 0.345098, 1)
@@ -28,6 +29,7 @@ size_flags_vertical = 0
 theme = ExtResource("1_b6j6r")
 script = ExtResource("2_ni46m")
 gameplay_testing_scene = ExtResource("3_smegl")
+multiplayer_testing_scene = ExtResource("4_ev4te")
 game_mode_panel = NodePath("Panel")
 game_mode_label = NodePath("HBoxContainer/VBoxContainer/Panel/VBoxContainer/Label")
 metadata/_edit_use_anchors_ = true
