@@ -19,8 +19,9 @@ bones/8/rotation = Quaternion(0.017138, -0.00269224, -0.0758242, 0.99697)
 bones/9/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
 bones/10/rotation = Quaternion(0.46384, -0.135351, 0.866695, 0.123985)
 bones/11/rotation = Quaternion(0.190941, -2.31117e-08, -3.25042e-09, 0.981602)
-bones/13/rotation = Quaternion(0.021673, 0.00340469, 0.0958885, 0.99515)
-bones/14/rotation = Quaternion(0.017138, 0.00269228, 0.0758242, 0.99697)
+bones/12/rotation = Quaternion(-0.0385868, 0.376729, -0.00768388, 0.925487)
+bones/13/rotation = Quaternion(0.021673, 0.00340465, 0.0958885, 0.99515)
+bones/14/rotation = Quaternion(0.017138, 0.00269224, 0.0758242, 0.99697)
 bones/17/position = Vector3(0.152733, -0.174075, -0.000765468)
 bones/17/rotation = Quaternion(0.659847, -0.071984, 0.295312, -0.687176)
 bones/19/position = Vector3(-0.152733, -0.174075, -0.000765541)
@@ -58,6 +59,9 @@ layers = 2
 [node name="Cube_001" parent="Armature/Skeleton3D" index="7"]
 layers = 2
 
+[node name="AnimationPlayer" parent="." index="1"]
+reset_on_save = false
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = ExtResource("3_ia1uj")
 anim_player = NodePath("../AnimationPlayer")
@@ -86,6 +90,3 @@ parameters/legs/conditions/not_vaulting = false
 parameters/legs/conditions/sliding = false
 parameters/legs/conditions/vaulting = false
 parameters/legs/moving/blend_position = Vector2(0, 0)
-
-[node name="AnimationPlayer" parent="." index="3"]
-reset_on_save = false

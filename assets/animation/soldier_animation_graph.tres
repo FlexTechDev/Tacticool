@@ -237,7 +237,6 @@ transitions = ["moving", "Slide", SubResource("AnimationNodeStateMachineTransiti
 graph_offset = Vector2(-505, -27)
 
 [resource]
-graph_offset = Vector2(-803, -48)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_cjoq4")
 nodes/Blend2/position = Vector2(-20, 80)
 nodes/Transition/node = SubResource("AnimationNodeTransition_ndwht")

@@ -56,6 +56,9 @@ layers = 2
 visible = false
 layers = 2
 
+[node name="AnimationPlayer" parent="." index="1"]
+reset_on_save = false
+
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = ExtResource("3_j2ndm")
 anim_player = NodePath("../AnimationPlayer")
@@ -83,6 +86,3 @@ parameters/legs/conditions/not_vaulting = false
 parameters/legs/conditions/sliding = false
 parameters/legs/conditions/vaulting = false
 parameters/legs/moving/blend_position = Vector2(0, 0)
-
-[node name="AnimationPlayer" parent="." index="3"]
-reset_on_save = false
