@@ -56,17 +56,33 @@ layers = 2
 visible = false
 layers = 2
 
-[node name="AnimationPlayer" parent="." index="1"]
-reset_on_save = false
-
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = ExtResource("3_j2ndm")
 anim_player = NodePath("../AnimationPlayer")
-parameters/MasterState/conditions/NoGun = false
-parameters/MasterState/NoGun/conditions/falling = false
-parameters/MasterState/NoGun/conditions/not_falling = false
-parameters/MasterState/NoGun/conditions/not_sliding = false
-parameters/MasterState/NoGun/conditions/not_vaulting = false
-parameters/MasterState/NoGun/conditions/sliding = false
-parameters/MasterState/NoGun/conditions/vaulting = false
-parameters/MasterState/NoGun/Walk/blend_position = Vector2(0, 0)
+parameters/Blend2/blend_amount = 1.0
+parameters/Transition/current_state = ""
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = -1
+parameters/arms/conditions/AR15 = false
+parameters/arms/conditions/no_gun = false
+parameters/arms/AR15/conditions/not_scoping = false
+parameters/arms/AR15/conditions/not_sprinting = false
+parameters/arms/AR15/conditions/scoping = false
+parameters/arms/AR15/conditions/sprinting = false
+parameters/arms/no_gun/conditions/falling = false
+parameters/arms/no_gun/conditions/not_falling = false
+parameters/arms/no_gun/conditions/not_sliding = false
+parameters/arms/no_gun/conditions/not_vaulting = false
+parameters/arms/no_gun/conditions/sliding = false
+parameters/arms/no_gun/conditions/vaulting = false
+parameters/arms/no_gun/moving/blend_position = Vector2(0, 0)
+parameters/legs/conditions/falling = false
+parameters/legs/conditions/not_falling = false
+parameters/legs/conditions/not_sliding = false
+parameters/legs/conditions/not_vaulting = false
+parameters/legs/conditions/sliding = false
+parameters/legs/conditions/vaulting = false
+parameters/legs/moving/blend_position = Vector2(0, 0)
+
+[node name="AnimationPlayer" parent="." index="3"]
+reset_on_save = false

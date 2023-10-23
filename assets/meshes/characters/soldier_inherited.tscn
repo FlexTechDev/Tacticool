@@ -10,33 +10,29 @@ tree = NodePath("AnimationTree")
 skeleton = NodePath("Armature/Skeleton3D")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-bones/0/position = Vector3(0, 0.0688961, 0.00546429)
-bones/0/rotation = Quaternion(-0.295545, 1.13884e-07, -3.52317e-08, 0.955329)
-bones/1/rotation = Quaternion(-0.00857597, -0.0015292, -0.0127248, 0.999881)
-bones/2/rotation = Quaternion(0.0862184, 2.92126e-10, 2.02151e-08, 0.996276)
-bones/3/rotation = Quaternion(0.139918, 3.52716e-10, 3.33316e-08, 0.990163)
-bones/4/rotation = Quaternion(0.505949, 0.526284, -0.680756, 0.0601096)
-bones/5/rotation = Quaternion(0.356072, 5.1174e-09, -1.33475e-08, 0.934459)
-bones/6/rotation = Quaternion(-0.294686, -0.80002, 0.233997, 0.467305)
-bones/7/rotation = Quaternion(0.00534908, -0.00213102, 0.109653, 0.993953)
-bones/8/rotation = Quaternion(0.00442045, 0.00259248, 0.0908237, 0.995854)
-bones/10/rotation = Quaternion(0.408658, 0.0359154, 0.845408, 0.342045)
-bones/11/rotation = Quaternion(0.505871, 1.71308e-08, 8.85645e-09, 0.862609)
-bones/12/rotation = Quaternion(-0.0607502, 0.0663473, -0.0735659, 0.993225)
-bones/13/rotation = Quaternion(0.021673, 0.00340466, 0.0958885, 0.99515)
-bones/14/rotation = Quaternion(0.017138, 0.00269225, 0.0758242, 0.99697)
-bones/17/position = Vector3(0.184494, -0.0999796, -0.143998)
-bones/19/position = Vector3(-0.122816, -0.0966036, 0.13885)
-bones/20/rotation = Quaternion(0.220238, -0.582028, -0.504314, 0.59867)
-bones/21/rotation = Quaternion(1.75151e-07, 1.44464e-08, -0.825609, 0.564243)
-bones/22/rotation = Quaternion(-9.79545e-06, 0.00061089, 0.658211, 0.752833)
-bones/23/rotation = Quaternion(0.601694, 0.355235, 0.630842, 0.337359)
-bones/24/rotation = Quaternion(-4.07474e-05, 0.000698785, 0.120802, 0.992676)
-bones/25/rotation = Quaternion(-0.0012183, 0.00499053, -0.65815, 0.752869)
-bones/26/position = Vector3(0.153924, 0.0684964, 0.301735)
-bones/27/position = Vector3(0.0522883, -0.0804193, 0.101033)
-bones/28/position = Vector3(-0.0643099, 0.0684964, 0.301734)
-bones/29/position = Vector3(-0.0522884, -0.142881, 0.17082)
+bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/4/rotation = Quaternion(0.46384, 0.135351, -0.866695, 0.123986)
+bones/5/rotation = Quaternion(0.190941, -1.02806e-08, -6.70226e-09, 0.981602)
+bones/6/rotation = Quaternion(-0.0385868, -0.376729, 0.00768388, 0.925488)
+bones/7/rotation = Quaternion(0.021673, -0.00340465, -0.0958885, 0.99515)
+bones/8/rotation = Quaternion(0.017138, -0.00269224, -0.0758242, 0.99697)
+bones/9/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
+bones/10/rotation = Quaternion(0.46384, -0.135351, 0.866695, 0.123985)
+bones/11/rotation = Quaternion(0.190941, -2.31117e-08, -3.25042e-09, 0.981602)
+bones/13/rotation = Quaternion(0.021673, 0.00340469, 0.0958885, 0.99515)
+bones/14/rotation = Quaternion(0.017138, 0.00269228, 0.0758242, 0.99697)
+bones/17/position = Vector3(0.152733, -0.174075, -0.000765468)
+bones/17/rotation = Quaternion(0.659847, -0.071984, 0.295312, -0.687176)
+bones/19/position = Vector3(-0.152733, -0.174075, -0.000765541)
+bones/19/rotation = Quaternion(0.071984, 0.659847, 0.687176, 0.295312)
+bones/20/rotation = Quaternion(0.707913, -0.0349818, -0.704841, 0.0288804)
+bones/21/rotation = Quaternion(2.23684e-08, -7.13032e-10, -0.108901, 0.994053)
+bones/22/rotation = Quaternion(1.45537e-05, 0.000446179, 0.658211, 0.752833)
+bones/23/rotation = Quaternion(0.707913, 0.0349811, 0.704841, 0.0288796)
+bones/24/rotation = Quaternion(-6.37389e-09, 1.2078e-09, 0.108899, 0.994053)
+bones/25/rotation = Quaternion(1.45556e-05, -0.000446176, -0.658211, 0.752833)
+bones/27/position = Vector3(0.0522884, -0.224585, -0.00639059)
+bones/29/position = Vector3(-0.0522884, -0.224585, -0.00639061)
 
 [node name="Circle" parent="Armature/Skeleton3D" index="0"]
 layers = 2
@@ -62,18 +58,34 @@ layers = 2
 [node name="Cube_001" parent="Armature/Skeleton3D" index="7"]
 layers = 2
 
-[node name="AnimationPlayer" parent="." index="1"]
-reset_on_save = false
-
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = ExtResource("3_ia1uj")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/MasterState/conditions/NoGun = false
-parameters/MasterState/NoGun/conditions/falling = false
-parameters/MasterState/NoGun/conditions/not_falling = false
-parameters/MasterState/NoGun/conditions/not_sliding = false
-parameters/MasterState/NoGun/conditions/not_vaulting = false
-parameters/MasterState/NoGun/conditions/sliding = false
-parameters/MasterState/NoGun/conditions/vaulting = false
-parameters/MasterState/NoGun/Walk/blend_position = Vector2(-0.00229883, 0.00769234)
+parameters/Blend2/blend_amount = 0.0
+parameters/Transition/current_state = ""
+parameters/Transition/transition_request = ""
+parameters/Transition/current_index = -1
+parameters/arms/conditions/AR15 = false
+parameters/arms/conditions/no_gun = false
+parameters/arms/AR15/conditions/not_scoping = false
+parameters/arms/AR15/conditions/not_sprinting = false
+parameters/arms/AR15/conditions/scoping = false
+parameters/arms/AR15/conditions/sprinting = false
+parameters/arms/no_gun/conditions/falling = false
+parameters/arms/no_gun/conditions/not_falling = false
+parameters/arms/no_gun/conditions/not_sliding = false
+parameters/arms/no_gun/conditions/not_vaulting = false
+parameters/arms/no_gun/conditions/sliding = false
+parameters/arms/no_gun/conditions/vaulting = false
+parameters/arms/no_gun/moving/blend_position = Vector2(0, 0)
+parameters/legs/conditions/falling = false
+parameters/legs/conditions/not_falling = false
+parameters/legs/conditions/not_sliding = false
+parameters/legs/conditions/not_vaulting = false
+parameters/legs/conditions/sliding = false
+parameters/legs/conditions/vaulting = false
+parameters/legs/moving/blend_position = Vector2(0, 0)
+
+[node name="AnimationPlayer" parent="." index="3"]
+reset_on_save = false

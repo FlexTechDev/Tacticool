@@ -77,9 +77,9 @@ func _process(delta: float) -> void:
 	
 	#sprint speed for animations
 	if(Input.is_action_pressed("sprint")):
-		arm_animation_manager.move(input_vector, velocity.y);
+		arm_animation_manager.move(input_vector, velocity.y, true);
 	else:
-		arm_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y);
+		arm_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y, false);
 	
 	move_and_slide();
 
