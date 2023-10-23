@@ -1,0 +1,202 @@
+[gd_scene load_steps=9 format=3 uid="uid://pu2yiqtdqcns"]
+
+[ext_resource type="Theme" uid="uid://dnt0ygiojji5s" path="res://assets/ui/menu_ui.tres" id="1_b6j6r"]
+[ext_resource type="Script" path="res://scripts/menu/main_menu_manager.gd" id="2_ni46m"]
+[ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="2_vwgt0"]
+[ext_resource type="PackedScene" uid="uid://6ckcmk0a7v73" path="res://scene/testing/mechanics_playground.tscn" id="3_smegl"]
+[ext_resource type="Script" path="res://scripts/menu/game_mode_manager.gd" id="3_yr1fd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qasco"]
+bg_color = Color(0.290196, 0.517647, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nee2b"]
+bg_color = Color(0.290196, 0.517647, 0.345098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55ld8"]
+bg_color = Color(0.176471, 0.176471, 0.176471, 0.741176)
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("game_mode_panel", "game_mode_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme = ExtResource("1_b6j6r")
+script = ExtResource("2_ni46m")
+gameplay_testing_scene = ExtResource("3_smegl")
+game_mode_panel = NodePath("Panel")
+game_mode_label = NodePath("HBoxContainer/VBoxContainer/Panel/VBoxContainer/Label")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "Tacticool"
+
+[node name="HSeparator" type="HSeparator" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 325)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Panel" type="Panel" parent="Control/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Button" parent="Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Multiplayer >"
+
+[node name="HSeparator" type="HSeparator" parent="Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 175)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qasco")
+text = "play"
+
+[node name="VSeparator" type="VSeparator" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer2/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "fireteam"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer2/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer2/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_nee2b")
+text = "invite friend"
+
+[node name="HSeparator" type="HSeparator" parent="Control/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(325, 400)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 74.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "contracts"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/VBoxContainer2/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "currently placeholder"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="Control" node_paths=PackedStringArray("main_menu")]
+visible = false
+custom_minimum_size = Vector2(800, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_55ld8")
+script = ExtResource("3_yr1fd")
+main_menu = NodePath("..")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="GameplayTesting" type="Button" parent="Control/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Gameplay Testing"
+icon_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Control/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Multiplayer" type="Button" parent="Control/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Multiplayer Testing"
+icon_alignment = 1
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 0.70698, 1.22182)
+
+[node name="soldier" parent="." instance=ExtResource("2_vwgt0")]
+
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/Label" to="Control" method="change_game_mode"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/Panel/VBoxContainer/Button" to="Control" method="play"]
+[connection signal="pressed" from="Control/Panel/HBoxContainer/GameplayTesting" to="Control/Panel" method="set_game_mode_gameplay_testing"]
+[connection signal="pressed" from="Control/Panel/HBoxContainer/Multiplayer" to="Control/Panel" method="set_game_mode_multiplayer"]

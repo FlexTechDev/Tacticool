@@ -2,6 +2,7 @@ extends Resource
 
 class_name MovementProfile
 
+@export var velocity_snap_modifier: Vector2 = Vector2(10,10);
 @export var speed: Vector2 = Vector2(150, 150);
 @export var jump_force: float = 5;
 @export var gravity: float = -9.8;

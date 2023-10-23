@@ -30,8 +30,8 @@ func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 			sliding_time = 0;
 			vector = vector.normalized() * movement_settings.sprint_magnifier;
 	
-	velocity.x = vector.x * movement_settings.speed.x * get_process_delta_time();
-	velocity.z = vector.y * movement_settings.speed.y * get_process_delta_time();
+	velocity.x = lerp(velocity.x, vector.x * movement_settings.speed.x * get_process_delta_time(), get_process_delta_time() * movement_settings.velocity_snap_modifier.x);
+	velocity.z = lerp(velocity.z, vector.y * movement_settings.speed.y * get_process_delta_time(), get_process_delta_time() * movement_settings.velocity_snap_modifier.y);
 	
 	last_movement_input_vector = vector;
 	
@@ -49,8 +49,8 @@ func slide(delta: float) -> void:
 	is_sliding = true;
 	full_body_animation_manager.set_sliding(true);
 	
-	velocity.x *= movement_settings.slide_speed_dropoff.sample(sliding_time);
-	velocity.z *= movement_settings.slide_speed_dropoff.sample(sliding_time);
+	velocity.x = lerp(velocity.x, velocity.x * movement_settings.slide_speed_dropoff.sample(sliding_time), get_process_delta_time() * movement_settings.velocity_snap_modifier.x);
+	velocity.z = lerp(velocity.z, velocity.z * movement_settings.slide_speed_dropoff.sample(sliding_time), get_process_delta_time() * movement_settings.velocity_snap_modifier.y);
 	
 	sliding_time += delta;
 

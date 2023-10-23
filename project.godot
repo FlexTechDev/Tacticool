@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Tacticool"
-run/main_scene="res://scene/testing/mechanics_playground.tscn"
+run/main_scene="res://scene/menus/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [input]
 
