@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://wl6xyisrqvyq"]
+[gd_scene load_steps=9 format=3 uid="uid://wl6xyisrqvyq"]
 
 [ext_resource type="Script" path="res://scripts/player/movement/player_controller.gd" id="1_pp57v"]
-[ext_resource type="Resource" uid="uid://dro846moqw5p6" path="res://assets/profiles/camera/player_camera_motion_profile.tres" id="2_jc2um"]
 [ext_resource type="Resource" uid="uid://cjbovx78ng5dr" path="res://assets/profiles/player/default_player_movement_profile.tres" id="2_r8iwl"]
-[ext_resource type="PackedScene" uid="uid://u3rjsaww1emi" path="res://assets/meshes/characters/soldier_arms_inherited.tscn" id="4_2fcmg"]
 [ext_resource type="PackedScene" uid="uid://bf4bgacvx1q8n" path="res://assets/meshes/characters/soldier_inherited.tscn" id="4_g1pwx"]
 [ext_resource type="Theme" uid="uid://dnt0ygiojji5s" path="res://assets/ui/menu_ui.tres" id="4_sdi6i"]
 [ext_resource type="Script" path="res://scripts/settings/in_game_settings.gd" id="5_yn5x0"]
@@ -16,14 +14,9 @@ bg_color = Color(0.180392, 0.180392, 0.180392, 0.662745)
 
 [node name="PlayerRoot" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera", "arm_animation_manager", "arms", "camera_node", "vault_raycast", "full_body_animation_manager")]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." node_paths=PackedStringArray("vault_raycast", "full_body_animation_manager")]
 script = ExtResource("1_pp57v")
-camera_bob = ExtResource("2_jc2um")
-camera = NodePath("CameraBase/Camera3D")
-arm_animation_manager = NodePath("CameraBase/arm_soldier")
-arms = NodePath("CameraBase/arm_soldier")
 movement_settings = ExtResource("2_r8iwl")
-camera_node = NodePath("CameraBase")
 vault_raycast = NodePath("RayCast3D")
 full_body_animation_manager = NodePath("networked_soldier")
 
@@ -31,26 +24,11 @@ full_body_animation_manager = NodePath("networked_soldier")
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.427006, 0)
 shape = SubResource("CapsuleShape3D_02qbt")
 
-[node name="CameraBase" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 0, 0.584204, 0)
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D/CameraBase"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0696467, 0)
-cull_mask = 1048573
-fov = 90.0
-near = 0.001
-
-[node name="arm_soldier" parent="CharacterBody3D/CameraBase" node_paths=PackedStringArray("camera") instance=ExtResource("4_2fcmg")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.584, 0)
-visible = false
-camera = NodePath("../Camera3D")
-
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.62932, 0.777145, 0, -0.777145, 0.62932, 0, 0.55, 0.202)
 target_position = Vector3(0, -0.5, 0)
 
-[node name="networked_soldier" parent="CharacterBody3D" node_paths=PackedStringArray("camera") instance=ExtResource("4_g1pwx")]
-camera = NodePath("../CameraBase/Camera3D")
+[node name="networked_soldier" parent="CharacterBody3D" instance=ExtResource("4_g1pwx")]
 
 [node name="Control" type="Control" parent="." node_paths=PackedStringArray("player")]
 layout_mode = 3

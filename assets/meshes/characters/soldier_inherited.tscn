@@ -1,32 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf4bgacvx1q8n"]
+[gd_scene load_steps=6 format=3 uid="uid://bf4bgacvx1q8n"]
 
 [ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="1_nopp6"]
 [ext_resource type="Script" path="res://scripts/player/animation/character_animation_manager.gd" id="2_jri8s"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dlbtraibw2iai" path="res://assets/animation/soldier_animation_graph.tres" id="3_ia1uj"]
+[ext_resource type="Script" path="res://scripts/player/camera/camera_controller.gd" id="3_trmsk"]
+[ext_resource type="Resource" uid="uid://dro846moqw5p6" path="res://assets/profiles/camera/player_camera_motion_profile.tres" id="4_quemm"]
 
-[node name="soldier" node_paths=PackedStringArray("tree", "skeleton") instance=ExtResource("1_nopp6")]
+[node name="soldier" node_paths=PackedStringArray("tree", "camera", "skeleton") instance=ExtResource("1_nopp6")]
 script = ExtResource("2_jri8s")
 tree = NodePath("AnimationTree")
+camera = NodePath("Armature/Skeleton3D/BoneAttachment3D/Camera3D")
 skeleton = NodePath("Armature/Skeleton3D")
-enable_head_ik = true
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
+bones/1/scale = Vector3(1, 1, 1)
 bones/4/rotation = Quaternion(0.46384, 0.135351, -0.866695, 0.123986)
 bones/5/rotation = Quaternion(0.190941, -1.02806e-08, -6.70226e-09, 0.981602)
 bones/6/rotation = Quaternion(-0.0385868, -0.376729, 0.00768388, 0.925488)
 bones/7/rotation = Quaternion(0.021673, -0.00340465, -0.0958885, 0.99515)
 bones/8/rotation = Quaternion(0.017138, -0.00269224, -0.0758242, 0.99697)
-bones/9/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
 bones/10/rotation = Quaternion(0.46384, -0.135351, 0.866695, 0.123985)
 bones/11/rotation = Quaternion(0.190941, -2.31117e-08, -3.25042e-09, 0.981602)
 bones/12/rotation = Quaternion(-0.0385868, 0.376729, -0.00768388, 0.925487)
 bones/13/rotation = Quaternion(0.021673, 0.00340465, 0.0958885, 0.99515)
 bones/14/rotation = Quaternion(0.017138, 0.00269224, 0.0758242, 0.99697)
 bones/17/position = Vector3(0.152733, -0.174075, -0.000765468)
-bones/17/rotation = Quaternion(0.659847, -0.071984, 0.295312, -0.687176)
 bones/19/position = Vector3(-0.152733, -0.174075, -0.000765541)
-bones/19/rotation = Quaternion(0.071984, 0.659847, 0.687176, 0.295312)
 bones/20/rotation = Quaternion(0.707913, -0.0349818, -0.704841, 0.0288804)
 bones/21/rotation = Quaternion(2.23684e-08, -7.13032e-10, -0.108901, 0.994053)
 bones/22/rotation = Quaternion(1.45537e-05, 0.000446179, 0.658211, 0.752833)
@@ -59,6 +59,20 @@ layers = 2
 
 [node name="Cube_001" parent="Armature/Skeleton3D" index="7"]
 layers = 2
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="8" node_paths=PackedStringArray("camera")]
+transform = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96047e-08, -2.38419e-07, -5.96047e-08, 1, -1.9207e-15, 0.536938, -1.6112e-08)
+bone_name = "Head"
+bone_idx = 3
+script = ExtResource("3_trmsk")
+camera_bob = ExtResource("4_quemm")
+camera = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.69407e-21, 0.120852, 7.10543e-15)
+cull_mask = 1048573
+fov = 90.0
+near = 0.001
 
 [node name="AnimationPlayer" parent="." index="1"]
 reset_on_save = false

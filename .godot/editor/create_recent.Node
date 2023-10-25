@@ -1,5 +1,6 @@
-Node
+BoneAttachment3D
 Camera3D
+Node
 MultiplayerSpawner
 HSplitContainer
 Button
@@ -12,7 +13,6 @@ VBoxContainer
 Label
 VSeparator
 Control
-BoneAttachment3D
 SkeletonIK3D
 VoxelGI
 LightmapGI

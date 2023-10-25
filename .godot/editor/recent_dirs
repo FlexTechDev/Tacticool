@@ -1,7 +1,7 @@
+res://assets/profiles/camera
 res://scripts/multiplayer
 res://scene/menus
 res://scene/testing
-res://assets/animation/no_gun
 res://assets/animation
 res://scripts/player/animation
 res://assets/meshes/characters
@@ -9,7 +9,6 @@ res://
 C:/Users/Osprey/Desktop
 C:/Users/Osprey/Desktop/Tacticool
 res://assets/ui
-res://assets/profiles/camera
 res://assets/profiles/player
 res://scripts/player/movement
 res://assets/environment

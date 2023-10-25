@@ -62,15 +62,9 @@ func jump_with_custom_force(force: float) -> void:
 
 func look_angle(angle_vector: Vector2) -> void:
 	rotate_angle(angle_vector.x);
-	
-	if(camera_node != null):
-		camera_node.rotation.x += deg_to_rad(angle_vector.y);
 
 func look_to_angle(angle_vector: Vector2) -> void:
 	rotate_to_angle(angle_vector.x);
-	
-	if(camera_node != null):
-		camera_node.rotation.x = deg_to_rad(angle_vector.y);
 
 func look_to_vector(vector: Vector3) -> void:
 	#in the future, this will allow the unit to look in the direction of a vector

@@ -7,6 +7,7 @@ const WeaponType = {
 	AR15 = "AR15"
 }
 
+@export var look_multiplier: Vector2 = Vector2(0.1, 0.1);
 @export var tree: AnimationTree;
 @export var playback_speed: float = 3;
 @export var y_velocity_buffer: float = 0.1;
@@ -14,11 +15,17 @@ const WeaponType = {
 @export var skeleton: Skeleton3D;
 @export var look_ik_max_down_rotation: float = -15;
 @export var look_ik_max_up_rotation: float = 35;
-@export var enable_head_ik: bool = false;
+@export var enable_head_ik: bool = true;
 @export var current_weapon = WeaponType.NoGun;
+
+var look_angle: float = 0;
 
 func _ready() -> void:
 	set_weapon_type("AR15");
+
+func _input(event: InputEvent) -> void:
+	if(event is InputEventMouseMotion):
+		look_angle = event.relative.y * look_multiplier.y;
 
 func set_weapon_type(type: String) -> void:
 	for t in WeaponType:
@@ -66,4 +73,4 @@ func vault(dead_time: float) -> void:
 func process_head_ik() -> void:
 	var bone_id: int = skeleton.find_bone("Gut");
 	
-	skeleton.set_bone_pose_rotation(bone_id, Quaternion.from_euler(Vector3(clamp(-camera.global_rotation.x, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));
+	skeleton.set_bone_pose_rotation(bone_id, Quaternion.from_euler(Vector3(clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));
