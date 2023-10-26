@@ -1,7 +1,8 @@
 extends Control
 
 @export var environment: Environment;
-@export var player: CharacterBody3D;
+@export var player_controller: PlayerController;
+@export var player_animation_manager: AnimationManager;
 
 func _ready() -> void:
 	visible = false;
@@ -20,10 +21,10 @@ func set_ssr(value: bool) -> void:
 	environment.ssr_enabled = value;
 
 func look_x_changed(value_changed: float) -> void:
-	player.look_multiplier.x = value_changed;
+	player_controller.look_multiplier.x = value_changed;
 
 func look_y_changed(value_changed: float) -> void:
-	player.look_multiplier.y = value_changed;
+	player_controller.look_multiplier.y = value_changed;
 
 func fov_changed(value_changed: float) -> void:
-	player.camera.fov = value_changed;
+	player_animation_manager.camera.fov = value_changed;

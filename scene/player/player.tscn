@@ -30,7 +30,7 @@ target_position = Vector3(0, -0.5, 0)
 
 [node name="networked_soldier" parent="CharacterBody3D" instance=ExtResource("4_g1pwx")]
 
-[node name="Control" type="Control" parent="." node_paths=PackedStringArray("player")]
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("player_controller", "player_animation_manager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,7 +41,8 @@ size_flags_horizontal = 6
 theme = ExtResource("4_sdi6i")
 script = ExtResource("5_yn5x0")
 environment = ExtResource("6_y60bl")
-player = NodePath("../CharacterBody3D")
+player_controller = NodePath("../CharacterBody3D")
+player_animation_manager = NodePath("../CharacterBody3D/networked_soldier")
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="Control"]

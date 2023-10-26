@@ -71,8 +71,8 @@ func vault(dead_time: float) -> void:
 	tree.set("parameters/legs/conditions/not_vaulting", true);
 
 func process_head_ik() -> void:
-	var bone_id: int = skeleton.find_bone("Gut");
-	var bone_id_2: int = skeleton.find_bone("Chest");
+	var gut_bone_id: int = skeleton.find_bone("Gut");
+	var chest_bone_id: int = skeleton.find_bone("Chest");
 	
-	skeleton.set_bone_pose_rotation(bone_id, Quaternion.from_euler(Vector3(clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));
-	skeleton.set_bone_pose_rotation(bone_id_2, Quaternion.from_euler(Vector3(clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));
+	skeleton.set_bone_pose_rotation(gut_bone_id, Quaternion.from_euler(Vector3(clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));
+	skeleton.set_bone_pose_rotation(chest_bone_id, Quaternion.from_euler(Vector3(clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));

@@ -9,9 +9,9 @@ point_count = 2
 [resource]
 script = ExtResource("1_1cjjc")
 velocity_snap_modifier = Vector2(10, 10)
-speed = Vector2(150, 150)
+speed = Vector2(120, 120)
 jump_force = 5.0
 gravity = -9.8
 gravity_scale = 0.3
-sprint_magnifier = 1.5
+sprint_magnifier = 1.25
 slide_speed_dropoff = SubResource("Curve_wjyww")
