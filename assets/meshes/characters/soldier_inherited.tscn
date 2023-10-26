@@ -14,7 +14,6 @@ skeleton = NodePath("Armature/Skeleton3D")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/rotation = Quaternion(-2.98023e-08, 1.19209e-07, -2.11758e-22, 1)
-bones/1/scale = Vector3(1, 1, 1)
 bones/4/rotation = Quaternion(0.46384, 0.135351, -0.866695, 0.123986)
 bones/5/rotation = Quaternion(0.190941, -1.02806e-08, -6.70226e-09, 0.981602)
 bones/6/rotation = Quaternion(-0.0385868, -0.376729, 0.00768388, 0.925488)

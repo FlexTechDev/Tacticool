@@ -73,4 +73,7 @@ func vault(dead_time: float) -> void:
 func process_head_ik() -> void:
 	var bone_id: int = skeleton.find_bone("Gut");
 	
+	print(bone_id);
+	print(look_angle);
+	
 	skeleton.set_bone_pose_rotation(bone_id, Quaternion.from_euler(Vector3(clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation)),0,0)));

@@ -3,7 +3,6 @@ extends CharacterController
 class_name PlayerController
 
 @export var look_multiplier: Vector2 = Vector2(0.1, 0.1);
-@export var arms: Node3D;
 
 var time: float = 0;
 var input_appended: bool = false;

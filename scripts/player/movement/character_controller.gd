@@ -3,7 +3,6 @@ extends CharacterBody3D
 class_name CharacterController
 
 @export var movement_settings: MovementProfile;
-@export var camera_node: Node3D;
 @export var vault_raycast: RayCast3D
 @export var vault_cutoff_point: float = 0.3;
 @export var full_body_animation_manager: AnimationManager
