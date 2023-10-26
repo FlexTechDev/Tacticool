@@ -28,7 +28,7 @@ transform = Transform3D(128, 0, 0, 0, 0.991, 0, 0, 0, 128, -64, -1, -64)
 [node name="VoxelGI" type="VoxelGI" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
 subdiv = 0
-size = Vector3(134.823, 14.6157, 135.867)
+size = Vector3(56.6963, 14.6157, 57.4037)
 data = SubResource("VoxelGIData_oxu86")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
