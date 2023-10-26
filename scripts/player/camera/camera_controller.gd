@@ -8,7 +8,7 @@ class_name CameraController
 var time: float = 0;
 
 func _process(delta: float) -> void:
-	var input_vector: Vector2 = Vector2(-Input.get_axis("left", "right"), Input.get_axis("down", "up"));
+	var input_vector: Vector2 = Vector2(Input.get_axis("left", "right"), Input.get_axis("down", "up"));
 	
 	if(Input.is_action_pressed("sprint") && input_vector.y > 0):
 		time += delta;

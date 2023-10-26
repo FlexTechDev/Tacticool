@@ -48,13 +48,13 @@ layers = 2
 layers = 2
 
 [node name="Circle_004" parent="Armature/Skeleton3D" index="4"]
-layers = 2
+layers = 3
 
 [node name="Circle_005" parent="Armature/Skeleton3D" index="5"]
-layers = 2
+layers = 3
 
 [node name="Cube" parent="Armature/Skeleton3D" index="6"]
-layers = 2
+layers = 3
 
 [node name="Cube_001" parent="Armature/Skeleton3D" index="7"]
 layers = 2
@@ -75,11 +75,13 @@ near = 0.001
 
 [node name="AnimationPlayer" parent="." index="1"]
 reset_on_save = false
+playback_default_blend_time = 0.5
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
 tree_root = ExtResource("3_ia1uj")
 anim_player = NodePath("../AnimationPlayer")
 active = true
+process_callback = 0
 parameters/legs/conditions/falling = false
 parameters/legs/conditions/not_falling = false
 parameters/legs/conditions/not_sliding = false
