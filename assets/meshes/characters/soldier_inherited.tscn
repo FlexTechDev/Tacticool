@@ -70,6 +70,7 @@ camera = NodePath("Camera3D")
 [node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.69407e-21, 0.120852, 7.10543e-15)
 cull_mask = 1048573
+current = true
 fov = 90.0
 near = 0.001
 

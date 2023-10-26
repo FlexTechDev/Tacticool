@@ -22,7 +22,6 @@ GlobalMultiplayerManager="*res://scripts/multiplayer/global_multiplayer_manager.
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
 
 [input]
 
