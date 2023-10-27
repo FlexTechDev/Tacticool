@@ -1,3 +1,4 @@
+LightmapGI
 BoneAttachment3D
 Camera3D
 Node
@@ -15,7 +16,6 @@ VSeparator
 Control
 SkeletonIK3D
 VoxelGI
-LightmapGI
 Node3D
 AnimationTree
 CheckButton

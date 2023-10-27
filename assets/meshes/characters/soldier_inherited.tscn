@@ -60,7 +60,7 @@ layers = 3
 layers = 2
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="8" node_paths=PackedStringArray("camera")]
-transform = Transform3D(1, -7.10543e-15, 2.38419e-07, -7.10543e-15, 1, 5.96047e-08, -2.38419e-07, -5.96047e-08, 1, -1.9207e-15, 0.536938, -1.6112e-08)
+transform = Transform3D(1, -7.10541e-15, 2.38418e-07, -7.10541e-15, 1, 5.96046e-08, -2.38418e-07, -5.96046e-08, 1, -1.9207e-15, 0.536938, -1.6112e-08)
 bone_name = "Head"
 bone_idx = 3
 script = ExtResource("3_trmsk")

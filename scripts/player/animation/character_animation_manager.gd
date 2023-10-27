@@ -7,7 +7,7 @@ const WeaponType = {
 	AR15 = "AR15"
 }
 
-@export var look_multiplier: Vector2 = Vector2(0.1, 0.01);
+@export var look_multiplier: Vector2 = Vector2(0.1, 0.001);
 @export var tree: AnimationTree;
 @export var playback_speed: float = 3;
 @export var y_velocity_buffer: float = 0.1;
@@ -26,6 +26,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if(event is InputEventMouseMotion):
 		look_angle += event.relative.y * look_multiplier.y;
+		look_angle = clamp(look_angle, deg_to_rad(look_ik_max_down_rotation), deg_to_rad(look_ik_max_up_rotation));
 
 func set_weapon_type(type: String) -> void:
 	for t in WeaponType:
