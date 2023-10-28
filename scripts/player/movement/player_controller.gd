@@ -9,6 +9,9 @@ var input_appended: bool = false;
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
+	
+	full_body_animation_manager.player_controller = self;
+	full_body_animation_manager.set_player_controller();
 
 func _input(event: InputEvent) -> void:
 	#camera look code

@@ -5,6 +5,7 @@ class_name CameraController
 @export var camera_bob: CameraMotionProfile;
 @export var camera: Camera3D;
 
+var player_controller: PlayerController;
 var time: float = 0;
 
 func _process(delta: float) -> void:
@@ -17,7 +18,8 @@ func _process(delta: float) -> void:
 	else:
 		time += delta / camera_bob.sprint_modifier;
 		
-	process_motion(input_vector, time, delta);
+	if(player_controller != null && player_controller.is_on_floor() && !player_controller.is_sliding):
+		process_motion(input_vector, time, delta);
 
 func process_motion(input_vector: Vector2, time: float, delta: float) -> void:
 	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector * Vector2(-1,1), time), delta * camera_bob.lean_speed);

@@ -26,11 +26,11 @@ skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 animation/trimming=false
-animation/remove_immutable_tracks=true
+animation/remove_immutable_tracks=false
 import_script/path=""
 _subresources={
 "animations": {
-"AR15_Run": {
+"AR15_Move": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
