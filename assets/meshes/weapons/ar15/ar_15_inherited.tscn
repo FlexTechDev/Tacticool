@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddcb62oinifhj"]
+
+[ext_resource type="PackedScene" uid="uid://chwb1esfd55q6" path="res://assets/meshes/weapons/ar15/ar15.glb" id="1_idgkl"]
+[ext_resource type="Script" path="res://scripts/weapons/guns/AR15.gd" id="2_ssf41"]
+
+[node name="ar15" node_paths=PackedStringArray("camera_scope") instance=ExtResource("1_idgkl")]
+script = ExtResource("2_ssf41")
+camera_scope = NodePath("Armature/Skeleton3D/CameraScope")
+position_offset = Vector3(-0.00799268, 0.0294522, 0.0517685)
+rotation_offset = Vector3(-90, 180, 0)
+
+[node name="CameraScope" type="Node3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.074, 0.064)

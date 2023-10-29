@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf4bgacvx1q8n"]
+[gd_scene load_steps=10 format=3 uid="uid://bf4bgacvx1q8n"]
 
 [ext_resource type="PackedScene" uid="uid://gigara33m4nv" path="res://assets/meshes/characters/soldier.glb" id="1_nopp6"]
 [ext_resource type="Script" path="res://scripts/player/animation/character_animation_manager.gd" id="2_jri8s"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://dlbtraibw2iai" path="res://assets/animation/soldier_animation_graph.tres" id="3_ia1uj"]
 [ext_resource type="Script" path="res://scripts/player/camera/camera_controller.gd" id="3_trmsk"]
 [ext_resource type="Resource" uid="uid://dro846moqw5p6" path="res://assets/profiles/camera/player_camera_motion_profile.tres" id="4_quemm"]
-[ext_resource type="PackedScene" uid="uid://chwb1esfd55q6" path="res://assets/meshes/weapons/ar15/ar15.glb" id="5_4lvp3"]
+[ext_resource type="PackedScene" uid="uid://ddcb62oinifhj" path="res://assets/meshes/weapons/ar15/ar_15_inherited.tscn" id="5_eeh01"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_socket_manager.gd" id="5_tefvk"]
+[ext_resource type="Script" path="res://scripts/weapons/weapon_package_type.gd" id="6_kiyv7"]
+
+[sub_resource type="Resource" id="Resource_ki1su"]
+script = ExtResource("6_kiyv7")
+weapon = "AR15"
+scene = ExtResource("5_eeh01")
 
 [node name="soldier" node_paths=PackedStringArray("tree", "camera", "skeleton", "camera_controller") instance=ExtResource("1_nopp6")]
 script = ExtResource("2_jri8s")
@@ -22,35 +29,27 @@ bones/2/rotation = Quaternion(-3.55271e-15, 0, -4.03897e-28, 1)
 bones/3/rotation = Quaternion(-6.05576e-08, -6.19096e-08, 0.268245, 0.963351)
 bones/4/position = Vector3(0.112205, 0.0632038, 1.11052e-07)
 bones/4/rotation = Quaternion(0.148634, -0.756088, -0.588577, -0.244574)
-bones/4/scale = Vector3(1, 1, 1)
 bones/5/position = Vector3(2.7487e-09, 0.108238, -5.12252e-08)
 bones/5/rotation = Quaternion(0.00195545, 3.40319e-09, -1.45077e-08, 0.999998)
 bones/6/position = Vector3(-2.78817e-10, 0.136931, 9.58084e-09)
 bones/6/rotation = Quaternion(-0.246823, -0.61274, 0.182893, 0.728134)
-bones/6/scale = Vector3(1, 1, 1)
 bones/7/position = Vector3(-4.24683e-08, 0.05, -1.49012e-08)
 bones/7/rotation = Quaternion(-0.0269646, -0.0105918, -0.351175, 0.935862)
-bones/7/scale = Vector3(1, 1, 1)
 bones/8/position = Vector3(-2.6077e-08, 0.0244168, -2.98023e-09)
 bones/8/rotation = Quaternion(-0.0809472, -0.0478952, -0.308141, 0.94668)
 bones/9/position = Vector3(0.00086368, 0.0181831, 0.0264393)
 bones/9/rotation = Quaternion(0.631788, 0.75793, 0.133801, 0.0920985)
-bones/9/scale = Vector3(1, 1, 1)
 bones/10/position = Vector3(-0.112205, 0.0632038, 5.74854e-08)
 bones/10/rotation = Quaternion(0.22478, 0.312105, 0.920478, 0.0691725)
-bones/10/scale = Vector3(1, 1, 1)
 bones/11/position = Vector3(7.68349e-09, 0.108238, -7.20612e-09)
 bones/11/rotation = Quaternion(0.865737, -1.68878e-08, 1.71633e-08, 0.5005)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/position = Vector3(-2.3563e-08, 0.136931, 7.79717e-09)
 bones/12/rotation = Quaternion(-0.536835, 0.017251, -0.236056, 0.809808)
-bones/12/scale = Vector3(1, 1, 1)
 bones/13/position = Vector3(-5.12228e-09, 0.05, 5.28991e-08)
 bones/13/rotation = Quaternion(0.0177372, 0.0159111, 0.619344, 0.784758)
-bones/13/scale = Vector3(1, 1, 1)
 bones/14/position = Vector3(-8.38191e-09, 0.0244168, -4.67524e-08)
 bones/14/rotation = Quaternion(0.0150205, 0.0355962, 0.591045, 0.805712)
-bones/14/scale = Vector3(1, 1, 1)
 bones/15/position = Vector3(-0.000863698, 0.0181832, 0.0264394)
 bones/15/rotation = Quaternion(0.667375, -0.669222, -0.22893, 0.233117)
 bones/16/position = Vector3(0.148908, -0.061329, -0.0707655)
@@ -106,13 +105,15 @@ layers = 3
 [node name="Cube_001" parent="Armature/Skeleton3D" index="7"]
 layers = 2
 
-[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="8" node_paths=PackedStringArray("camera")]
-transform = Transform3D(0.856089, -0.516828, 8.66487e-08, 0.516828, 0.856089, 1.43067e-07, -1.4812e-07, -7.76958e-08, 1, -1.9207e-15, 0.536938, -1.6112e-08)
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="8" node_paths=PackedStringArray("camera", "weapon_socket_manager")]
+transform = Transform3D(0.856089, -0.516828, 8.66482e-08, 0.516828, 0.856089, 1.43067e-07, -1.4812e-07, -7.7696e-08, 1, -1.9207e-15, 0.536938, -1.6112e-08)
 bone_name = "Head"
 bone_idx = 3
 script = ExtResource("3_trmsk")
 camera_bob = ExtResource("4_quemm")
 camera = NodePath("Camera3D")
+weapon_socket_manager = NodePath("../WeaponSocket")
+weapon_base_position = Vector3(-1.69407e-21, 0.120852, 7.10543e-15)
 
 [node name="Camera3D" type="Camera3D" parent="Armature/Skeleton3D/BoneAttachment3D" index="0"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.69407e-21, 0.120852, 7.10543e-15)
@@ -122,12 +123,15 @@ fov = 90.0
 near = 0.001
 
 [node name="WeaponSocket" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="9"]
-transform = Transform3D(-0.99984, 0.00804423, -0.0159431, -0.0159339, 0.00124288, 0.999872, 0.00806302, 0.999967, -0.00111446, -0.0574595, 0.52813, 0.107727)
+transform = Transform3D(-0.999841, 0.00804415, -0.0159431, -0.0159336, 0.00124195, 0.999872, 0.00806293, 0.999967, -0.0011135, -0.0574591, 0.52813, 0.107727)
 bone_name = "Hand.R"
 bone_idx = 12
+script = ExtResource("5_tefvk")
+weapon_scenes = Array[ExtResource("6_kiyv7")]([SubResource("Resource_ki1su")])
+current_weapon = "AR15"
 
-[node name="ar15" parent="Armature/Skeleton3D/WeaponSocket" index="0" instance=ExtResource("5_4lvp3")]
-transform = Transform3D(0.999229, -0.00813743, -0.0384399, -0.0384371, 0.000497983, -0.999261, 0.00815045, 0.999968, 0.00018481, -0.0023379, 0.174975, 0.0556599)
+[node name="ar15" parent="Armature/Skeleton3D/WeaponSocket" index="0" instance=ExtResource("5_eeh01")]
+transform = Transform3D(-1, 8.7045e-08, 2.79397e-09, 2.79397e-09, -4.36557e-08, 1, 8.83274e-08, 1, 4.4005e-08, -0.00799268, 0.0294522, 0.0517685)
 
 [node name="AnimationPlayer" parent="." index="1"]
 reset_on_save = false

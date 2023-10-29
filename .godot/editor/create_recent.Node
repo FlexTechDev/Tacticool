@@ -1,6 +1,7 @@
+Camera3D
+Node3D
 BoneAttachment3D
 LightmapGI
-Camera3D
 Node
 MultiplayerSpawner
 HSplitContainer
@@ -16,7 +17,6 @@ VSeparator
 Control
 SkeletonIK3D
 VoxelGI
-Node3D
 AnimationTree
 CheckButton
 HSlider
