@@ -37,6 +37,9 @@ func move(vector: Vector2, is_sprinting: bool, delta: float) -> void:
 	full_body_animation_manager.set_sliding(false);
 	is_sliding = false;
 
+func shoot() -> void:
+	full_body_animation_manager.shoot();
+
 func try_vault() -> Vector3:
 	if(vault_raycast.is_colliding() && vault_raycast.get_collision_normal() == Vector3(0, 1, 0)):
 		velocity = Vector3.ZERO;

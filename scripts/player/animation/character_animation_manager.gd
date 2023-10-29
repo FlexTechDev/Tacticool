@@ -81,8 +81,17 @@ func set_falling(value: bool) -> void:
 	tree.set("parameters/" + str(current_weapon) + "/conditions/falling", value);
 	tree.set("parameters/" + str(current_weapon) + "/conditions/not_falling", !value);
 
+func shoot() -> void:
+	tree.set("parameters/" + str(current_weapon) + "/conditions/shooting", true);
+	tree.set("parameters/" + str(current_weapon) + "/conditions/not_shooting", false);
+	
+	await get_tree().create_timer((2.5)).timeout;
+
+	tree.set("parameters/" + str(current_weapon) + "/conditions/shooting", false);
+	tree.set("parameters/" + str(current_weapon) + "/conditions/not_shooting", true);
+
 func vault(dead_time: float) -> void:
-	playback_speed = 3;
+	playback_speed = 1;
 	tree.set("parameters/legs/conditions/vaulting", true);
 	tree.set("parameters/legs/conditions/not_vaulting", false);
 	

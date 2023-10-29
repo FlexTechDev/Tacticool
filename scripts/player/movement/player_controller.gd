@@ -81,6 +81,10 @@ func _process(delta: float) -> void:
 		full_body_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y, true);
 	move_and_slide();
 	
+	#shooting
+	if(Input.is_action_just_pressed("shoot")):
+		shoot();
+	
 	#aiming
 	if(Input.is_action_just_pressed("aim")):
 		full_body_animation_manager.set_aim(true);
@@ -88,6 +92,9 @@ func _process(delta: float) -> void:
 	elif(Input.is_action_just_released("aim")):
 		full_body_animation_manager.set_aim(false);
 		is_aiming = false;
+
+func shoot() -> void:
+	full_body_animation_manager.shoot();
 
 func append_movement_input(time_in_seconds: float) -> void:
 	#sets a timer and does not movement take input until timer is up
