@@ -48,6 +48,11 @@ func _process(delta: float) -> void:
 	if(enable_head_ik):
 		process_head_ik()
 
+func set_aim(value: bool) -> void:
+	if(tree.get("parameters/" + str(current_weapon) + "/conditions/aiming") != null):
+		tree.set("parameters/" + str(current_weapon) + "/conditions/aiming", value);
+		tree.set("parameters/" + str(current_weapon) + "/conditions/not_aiming", !value);
+
 func move(vector: Vector2, y_velocity: float, sprinting: bool) -> void:
 	if(abs(y_velocity) <= y_velocity_buffer):
 		playback_speed = 3;

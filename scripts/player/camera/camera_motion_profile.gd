@@ -2,7 +2,7 @@ extends Resource
 
 class_name CameraMotionProfile
 
-@export var ride_height: float = 0.121;
+@export var ride_height: float = 0.095;
 @export var lean: float = 3;
 @export var lean_speed: float = 10;
 @export var bob_magnitude: float = 0.03;

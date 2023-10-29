@@ -6,6 +6,7 @@ class_name PlayerController
 
 var time: float = 0;
 var input_appended: bool = false;
+var is_aiming: bool = false;
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED;
@@ -74,11 +75,19 @@ func _process(delta: float) -> void:
 		full_body_animation_manager.set_sliding(false);
 	
 	#sprint speed for animations
-	if(Input.is_action_pressed("sprint")):
+	if(Input.is_action_pressed("sprint") && input_vector.y > 0):
 		full_body_animation_manager.move(input_vector, velocity.y, true);
 	else:
 		full_body_animation_manager.move(input_vector / movement_settings.sprint_magnifier, velocity.y, true);
 	move_and_slide();
+	
+	#aiming
+	if(Input.is_action_just_pressed("aim")):
+		full_body_animation_manager.set_aim(true);
+		is_aiming = true;
+	elif(Input.is_action_just_released("aim")):
+		full_body_animation_manager.set_aim(false);
+		is_aiming = false;
 
 func append_movement_input(time_in_seconds: float) -> void:
 	#sets a timer and does not movement take input until timer is up

@@ -18,8 +18,11 @@ func _process(delta: float) -> void:
 	else:
 		time += delta / camera_bob.sprint_modifier;
 		
-	if(player_controller != null && player_controller.is_on_floor() && !player_controller.is_sliding):
+	if(player_controller != null && player_controller.is_on_floor() && !player_controller.is_sliding && !player_controller.is_aiming):
 		process_motion(input_vector, time, delta);
+	else:
+		camera.global_rotation.z = 0;
+		camera.position.y = camera_bob.ride_height;
 
 func process_motion(input_vector: Vector2, time: float, delta: float) -> void:
 	camera.rotation_degrees.z = lerp(camera.rotation_degrees.z, -camera_bob.process_motion(camera, input_vector * Vector2(-1,1), time), delta * camera_bob.lean_speed);

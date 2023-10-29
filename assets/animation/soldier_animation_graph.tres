@@ -1,4 +1,7 @@
-[gd_resource type="AnimationNodeBlendTree" load_steps=70 format=3 uid="uid://dlbtraibw2iai"]
+[gd_resource type="AnimationNodeBlendTree" load_steps=75 format=3 uid="uid://dlbtraibw2iai"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_12arc"]
+animation = &"AR15_Aim"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_es28a"]
 animation = &"AR15_Hold"
@@ -144,7 +147,29 @@ xfade_time = 0.5
 advance_mode = 2
 advance_condition = &"vaulting"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_06ysh"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7gk2"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_so3o4"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"aiming"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_maefp"]
+xfade_time = 0.5
+advance_mode = 2
+advance_condition = &"not_aiming"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w3vwr"]
+states/AR15_Aim/node = SubResource("AnimationNodeAnimation_12arc")
+states/AR15_Aim/position = Vector2(549, -11)
 states/AR15_Hold/node = SubResource("AnimationNodeAnimation_es28a")
 states/AR15_Hold/position = Vector2(549, 179)
 states/AR15_Idle/node = SubResource("AnimationNodeAnimation_m1uxb")
@@ -153,8 +178,8 @@ states/AR15_Idle/position = Vector2(549, 100)
 "states/AR15_Idle 2/position" = Vector2(363, 179)
 states/moving/node = SubResource("AnimationNodeBlendSpace2D_5ebu2")
 states/moving/position = Vector2(363, 100)
-transitions = ["Start", "moving", SubResource("AnimationNodeStateMachineTransition_vfq4j"), "moving", "AR15_Idle 2", SubResource("AnimationNodeStateMachineTransition_71q2t"), "AR15_Idle 2", "moving", SubResource("AnimationNodeStateMachineTransition_10oi3"), "moving", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_v75c8"), "AR15_Idle", "moving", SubResource("AnimationNodeStateMachineTransition_kgrcs"), "moving", "AR15_Hold", SubResource("AnimationNodeStateMachineTransition_qn2bf"), "AR15_Hold", "moving", SubResource("AnimationNodeStateMachineTransition_vqlv5"), "AR15_Idle 2", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_xxhe1"), "AR15_Idle", "AR15_Idle 2", SubResource("AnimationNodeStateMachineTransition_h6dmv"), "AR15_Idle 2", "AR15_Hold", SubResource("AnimationNodeStateMachineTransition_0hfbs")]
-graph_offset = Vector2(-237, -20)
+transitions = ["Start", "moving", SubResource("AnimationNodeStateMachineTransition_vfq4j"), "moving", "AR15_Idle 2", SubResource("AnimationNodeStateMachineTransition_71q2t"), "AR15_Idle 2", "moving", SubResource("AnimationNodeStateMachineTransition_10oi3"), "moving", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_v75c8"), "AR15_Idle", "moving", SubResource("AnimationNodeStateMachineTransition_kgrcs"), "moving", "AR15_Hold", SubResource("AnimationNodeStateMachineTransition_qn2bf"), "AR15_Hold", "moving", SubResource("AnimationNodeStateMachineTransition_vqlv5"), "AR15_Idle 2", "AR15_Idle", SubResource("AnimationNodeStateMachineTransition_xxhe1"), "AR15_Idle", "AR15_Idle 2", SubResource("AnimationNodeStateMachineTransition_h6dmv"), "AR15_Idle 2", "AR15_Hold", SubResource("AnimationNodeStateMachineTransition_0hfbs"), "moving", "AR15_Aim", SubResource("AnimationNodeStateMachineTransition_06ysh"), "AR15_Idle", "AR15_Aim", SubResource("AnimationNodeStateMachineTransition_g7gk2"), "AR15_Idle 2", "AR15_Aim", SubResource("AnimationNodeStateMachineTransition_so3o4"), "AR15_Aim", "moving", SubResource("AnimationNodeStateMachineTransition_maefp")]
+graph_offset = Vector2(-278, -74)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_0o0ew"]
 filters = ["Armature/Skeleton3D:Arm_IK_Pole.L", "Armature/Skeleton3D:Arm_IK_Pole.R", "Armature/Skeleton3D:Arm_IK_Target.L", "Armature/Skeleton3D:Arm_IK_Target.R", "Armature/Skeleton3D:Chest", "Armature/Skeleton3D:Gut", "Armature/Skeleton3D:Hand.L", "Armature/Skeleton3D:Hand.R", "Armature/Skeleton3D:Head", "Armature/Skeleton3D:LowerArm.L", "Armature/Skeleton3D:LowerArm.R", "Armature/Skeleton3D:LowerGrip.L", "Armature/Skeleton3D:LowerGrip.R", "Armature/Skeleton3D:Thumb.L", "Armature/Skeleton3D:Thumb.R", "Armature/Skeleton3D:UpperArm.L", "Armature/Skeleton3D:UpperArm.R", "Armature/Skeleton3D:UpperGrip.L", "Armature/Skeleton3D:UpperGrip.R"]
@@ -327,7 +352,7 @@ states/moving/position = Vector2(354, 100)
 transitions = ["moving", "Fall", SubResource("AnimationNodeStateMachineTransition_s3yye"), "Fall", "moving", SubResource("AnimationNodeStateMachineTransition_pjxpm"), "Start", "moving", SubResource("AnimationNodeStateMachineTransition_8yspu"), "moving", "Slide", SubResource("AnimationNodeStateMachineTransition_mrqaj"), "Slide", "moving", SubResource("AnimationNodeStateMachineTransition_ysosf"), "moving", "Vault", SubResource("AnimationNodeStateMachineTransition_3xpfq"), "Vault", "moving", SubResource("AnimationNodeStateMachineTransition_qp72e"), "Fall", "Slide", SubResource("AnimationNodeStateMachineTransition_kle0f"), "Slide", "Fall", SubResource("AnimationNodeStateMachineTransition_neiq0"), "Fall", "Vault", SubResource("AnimationNodeStateMachineTransition_u8gl4")]
 
 [resource]
-graph_offset = Vector2(-1144, 349)
+graph_offset = Vector2(-836.375, 130.553)
 nodes/AR15/node = SubResource("AnimationNodeStateMachine_w3vwr")
 nodes/AR15/position = Vector2(-660, 440)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_0o0ew")
